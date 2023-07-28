@@ -39,33 +39,6 @@
     margin-top: 20px;
   }
 
-  &__btn {
-    opacity: 0;
-    pointer-events: none;
-    width: 250px;
-    align-self: flex-end;
-    margin-top: 40px;
-    padding: 8px 16px;
-    border-radius: 20px;
-    background-color: var(--primary-main);
-    color: #fff;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 150% */
-    transition: opacity 0.3s ease-in-out;
-
-    &_active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    @include mobile {
-      width: 100%;
-      margin-top: 24px;
-    }
-  }
-
   &__subtitle {
     font-size: 20px;
     font-style: normal;
@@ -77,6 +50,30 @@
       font-style: normal;
       font-weight: 700;
       line-height: 20px; /* 125% */
+    }
+  }
+
+  &__link-end {
+    width: 250px;
+    align-self: flex-end;
+    margin-top: 40px;
+
+    padding: 8px 16px;
+    border-radius: 20px;
+
+    background-color: var(--primary-main);
+
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+
+    text-align: center;
+
+    @include mobile {
+      width: 100%;
+      margin-top: 24px;
     }
   }
 }
