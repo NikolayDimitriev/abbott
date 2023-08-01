@@ -10,6 +10,31 @@
     &--active {
       display: flex;
     }
+
+    &--columns {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 40px;
+
+      @include tablet {
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+
+    max-width: 540px;
+    width: 100%;
+
+    @include tablet {
+      max-width: none;
+    }
   }
 
   &__header {
@@ -47,23 +72,42 @@
 
     @include mobile {
       font-size: 16px;
-      font-style: normal;
-      font-weight: 700;
       line-height: 20px; /* 125% */
     }
   }
 
-  &__link-end {
-    width: 250px;
-    align-self: flex-end;
-    margin-top: 40px;
+  &__attention {
+    font-family: Calibri;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 125% */
+    color: var(--primary-main);
 
+    @include mobile {
+      font-size: 16px;
+      line-height: 20px; /* 125% */
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background: #bdbdbd;
+
+    &_mobile {
+      display: none;
+
+      @include mobile {
+        display: block;
+      }
+    }
+  }
+
+  &__link {
     padding: 8px 16px;
     border-radius: 20px;
 
-    background-color: var(--primary-main);
-
-    color: #fff;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -71,9 +115,79 @@
 
     text-align: center;
 
+    transition: background-color 0.3s ease-in;
+
     @include mobile {
       width: 100%;
       margin-top: 24px;
+    }
+
+    &_testing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background-color: var(--primary-main);
+      color: #fff;
+      text-transform: uppercase;
+      position: relative;
+
+      @include hover {
+        background-color: rgba(var(--primary-main-rgb), 0.7);
+        color: #fff;
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+
+      @include tablet {
+        align-self: center;
+        max-width: 540px;
+      }
+
+      @include mobile {
+        margin-top: 0;
+        margin-bottom: 12px;
+      }
+    }
+
+    &_end {
+      width: 250px;
+      align-self: flex-end;
+      margin-top: 40px;
+
+      background-color: var(--primary-main);
+      color: #fff;
+
+      @include hover {
+        background-color: rgba(var(--primary-main-rgb), 0.7);
+        color: #fff;
+      }
+    }
+
+    &_white {
+      border: 1px solid var(--primary-main);
+      background-color: #fff;
+      color: var(--primary-main);
+      margin-top: 20px;
+
+      @include hover {
+        background-color: rgba(var(--primary-main-rgb), 0.7);
+        color: #fff;
+      }
+
+      @include mobile {
+        margin-top: 12px;
+      }
+    }
+
+    &_full-width {
+      align-self: center;
+      width: 100%;
+      max-width: none;
     }
   }
 }

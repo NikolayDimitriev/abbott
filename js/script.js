@@ -32,6 +32,22 @@ window.addEventListener("DOMContentLoaded", function () {
     ".repeated-buttons__input"
   );
 
+  const slideSixButtons = getSlide("slide-6").querySelectorAll(
+    ".repeated-buttons__input"
+  );
+
+  const slideSevenButtons = getSlide("slide-7").querySelectorAll(
+    ".repeated-buttons__input"
+  );
+
+  const slideEightButtons = getSlide("slide-8").querySelectorAll(
+    ".repeated-buttons__input"
+  );
+
+  const slideNineButtons = getSlide("slide-9").querySelectorAll(
+    ".repeated-buttons__input"
+  );
+
   let activeSlide = allSlides[0];
 
   const enabledCheckboxes = {
@@ -77,11 +93,13 @@ window.addEventListener("DOMContentLoaded", function () {
       }
       case "slide-2": {
         if (slideTwoButtons[0].checked) {
-          updateActiveSlide("slide-in-work");
+          updateActiveSlide("slide-in-work"); // структуры пищевода
         } else if (enabledCheckboxes["checkbox-2"]) {
           updateActiveSlide("slide-3");
         } else {
-          updateActiveSlide("slide-in-work"); // результат если не проводили
+          updateActiveSlide(
+            "result-nerd-func-heartburn-hypersensitive-esophagus"
+          );
         }
         break;
       }
@@ -89,9 +107,9 @@ window.addEventListener("DOMContentLoaded", function () {
         if (slideThreeButtons[0].checked) {
           updateActiveSlide("slide-4");
         } else if (slideThreeButtons[1].checked) {
-          updateActiveSlide("slide-in-work");
+          updateActiveSlide("slide-6");
         } else {
-          updateActiveSlide("slide-in-work");
+          showResultSlide("result-gerd-confirmed");
         }
         break;
       }
@@ -103,20 +121,24 @@ window.addEventListener("DOMContentLoaded", function () {
           if (percent > 50) {
             showResultSlide("result-hypersensitive-esophagus");
           } else if (enabledCheckboxes["checkbox-3"]) {
-            updateActiveSlide("slide-in-work");
+            updateActiveSlide("slide-7");
           } else if (enabledCheckboxes["checkbox-4"]) {
             updateActiveSlide("slide-5");
           } else {
-            showResultSlide("result-functional-heartburn");
+            showResultSlide(
+              "result-esophageal-botility-disorders-or-functional-heartburn"
+            );
           }
         } else if (slideFourButtons[0].checked) {
           showResultSlide("result-hypersensitive-esophagus");
         } else if (enabledCheckboxes["checkbox-3"]) {
-          updateActiveSlide("slide-in-work");
+          updateActiveSlide("slide-7");
         } else if (enabledCheckboxes["checkbox-4"]) {
           updateActiveSlide("slide-5");
         } else {
-          showResultSlide("result-functional-heartburn");
+          showResultSlide(
+            "result-esophageal-botility-disorders-or-functional-heartburn"
+          );
         }
         break;
       }
@@ -133,6 +155,54 @@ window.addEventListener("DOMContentLoaded", function () {
           showResultSlide("result-diffuse-esophageal-spasm");
         } else {
           showResultSlide("result-hernia-esophageal-orifice-diaphragm");
+        }
+
+        break;
+      }
+      case "slide-6": {
+        if (slideSixButtons[0].checked) {
+          showResultSlide("result-study-ambiguous-conduct-egds");
+        } else {
+          showResultSlide("result-reflux-esophagitis");
+        }
+
+        break;
+      }
+      case "slide-7": {
+        if (slideSevenButtons[0].checked) {
+          updateActiveSlide("slide-8");
+        } else {
+          updateActiveSlide("slide-9");
+        }
+
+        break;
+      }
+      case "slide-8": {
+        if (slideEightButtons[0].checked) {
+          showResultSlide("result-achalasia-esophagus-2");
+        } else {
+          showResultSlide(
+            "result-violation-patency-esophageal-gastric-junction"
+          );
+        }
+
+        break;
+      }
+      case "slide-9": {
+        if (slideNineButtons[0].checked) {
+          showResultSlide(
+            "result-violation-motor-fucntion-thoracic-esophagus-lack-peristalsis"
+          );
+        } else if (slideNineButtons[1].checked) {
+          showResultSlide("result-distal-esophagospasm");
+        } else if (slideNineButtons[2].checked) {
+          showResultSlide("result-hypercontractile-esophagus");
+        } else if (slideNineButtons[3].checked) {
+          showResultSlide("result-ineffective-peristalsis");
+        } else if (slideNineButtons[4].checked) {
+          showResultSlide("result-ineffective-peristalsis");
+        } else {
+          showResultSlide("result-functional-heartburn");
         }
 
         break;
@@ -204,6 +274,30 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  slideSixButtons.forEach(function (input) {
+    input.addEventListener("change", function () {
+      showNextBtn();
+    });
+  });
+
+  slideSevenButtons.forEach(function (input) {
+    input.addEventListener("change", function () {
+      showNextBtn();
+    });
+  });
+
+  slideEightButtons.forEach(function (input) {
+    input.addEventListener("change", function () {
+      showNextBtn();
+    });
+  });
+
+  slideNineButtons.forEach(function (input) {
+    input.addEventListener("change", function () {
+      showNextBtn();
+    });
+  });
+
   function updateHeaderById(slideId) {
     switch (slideId) {
       case "slide-1":
@@ -221,6 +315,18 @@ window.addEventListener("DOMContentLoaded", function () {
       case "slide-5":
         updateHeader("Шаг 1: Уточняющие вопросы", "90%", "90%");
         break;
+      case "slide-6":
+        updateHeader("Шаг 1: Уточняющие вопросы", "70%", "70%");
+        break;
+      case "slide-7":
+        updateHeader("Шаг 1: Уточняющие вопросы", "50%", "50%");
+        break;
+      case "slide-8":
+        updateHeader("Шаг 1: Уточняющие вопросы", "70%", "70%");
+        break;
+      case "slide-9":
+        updateHeader("Шаг 1: Уточняющие вопросы", "70%", "70%");
+        break;
       case "result-hypersensitive-esophagus":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
@@ -228,7 +334,7 @@ window.addEventListener("DOMContentLoaded", function () {
           "100%"
         );
         break;
-      case "result-functional-heartburn":
+      case "result-esophageal-botility-disorders-or-functional-heartburn":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
           "100%",
@@ -236,6 +342,13 @@ window.addEventListener("DOMContentLoaded", function () {
         );
         break;
       case "result-achalasia-esophagus":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-achalasia-esophagus-2":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
           "100%",
@@ -250,6 +363,76 @@ window.addEventListener("DOMContentLoaded", function () {
         );
         break;
       case "result-hernia-esophageal-orifice-diaphragm":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-study-ambiguous-conduct-egds":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-reflux-esophagitis":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-gerd-confirmed":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-violation-patency-esophageal-gastric-junction":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-nerd-func-heartburn-hypersensitive-esophagus":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-violation-motor-fucntion-thoracic-esophagus-lack-peristalsis":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-distal-esophagospasm":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-hypercontractile-esophagus":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-ineffective-peristalsis":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%",
+          "100%"
+        );
+        break;
+      case "result-functional-heartburn":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
           "100%",
