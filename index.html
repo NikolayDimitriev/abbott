@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Abbott Test</title>
+    <script defer src="./js/script.js"></script>
   </head>
 
   <body>
@@ -32,8 +33,7 @@
                 </div>
               </div>
               <button
-                class="repeated-header__back-btn btn-reset"
-                data-slide="#"
+                class="repeated-header__back-btn btn-reset repeated-header__back-btn_hidden"
               >
                 Назад
               </button>
@@ -491,7 +491,9 @@
                         >Перистальтика отсутствует</label
                       >
                     </li>
-                    <li class="repeated-buttons__item">
+                    <li
+                      class="repeated-buttons__item repeated-buttons__item_big"
+                    >
                       <input
                         type="radio"
                         id="repeated-buttons-slide-8-2"
@@ -624,10 +626,69 @@
                 </div>
               </div>
 
+              <div id="slide-10" class="repeated-content__slide">
+                <div class="repeated-content__header">
+                  <h2 class="repeated-content__title title-reset">
+                    Для оценки полной клинической картины заболевания и
+                    постановки правильного диагноза пациенту рекомендуется
+                    проведение ЭГДС
+                  </h2>
+                  <h3 class="repeated-content__subtitle title-reset">
+                    Хотите оценить результаты проведенных исследований?
+                  </h3>
+                </div>
+                <div class="repeated-content__main">
+                  <ul class="repeated-buttons list-reset">
+                    <li class="repeated-buttons__item">
+                      <input
+                        type="radio"
+                        id="repeated-buttons-slide-10-1"
+                        name="repeated-buttons-slide-10"
+                        class="repeated-buttons__input"
+                      />
+                      <label
+                        for="repeated-buttons-slide-10-1"
+                        class="repeated-buttons__label"
+                        >Да</label
+                      >
+                    </li>
+                    <li class="repeated-buttons__item">
+                      <input
+                        type="radio"
+                        id="repeated-buttons-slide-10-2"
+                        name="repeated-buttons-slide-10"
+                        class="repeated-buttons__input"
+                      />
+                      <label
+                        for="repeated-buttons-slide-10-2"
+                        class="repeated-buttons__label"
+                        >Нет</label
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
               <div id="slide-in-work" class="repeated-content__slide">
                 <div class="repeated-content__header">
                   <h2 class="repeated-content__title title-reset">В работе!</h2>
                 </div>
+              </div>
+
+              <div id="result-required-egds" class="repeated-content__slide">
+                <div class="repeated-content__header">
+                  <h2 class="repeated-content__title title-reset">
+                    Для оценки полной клинической картины заболевания и
+                    постановки корректного диагноза пациенту рекомендуется
+                    проведение ЭГДС.
+                  </h2>
+                </div>
+                <a
+                  href="#"
+                  class="repeated-content__link repeated-content__link_end"
+                >
+                  Закончить прием
+                </a>
               </div>
 
               <div
@@ -725,6 +786,50 @@
                     >Для подтверждения диагноза рекомендуется проведение
                     манометрии высокого разрешения.</span
                   >
+                </div>
+                <a
+                  href="#"
+                  class="repeated-content__link repeated-content__link_end"
+                >
+                  Закончить прием
+                </a>
+              </div>
+
+              <div
+                id="result-esophageal-botility-disorders-or-functional-heartburn-2"
+                class="repeated-content__slide"
+              >
+                <div class="repeated-content__header">
+                  <h2 class="repeated-content__title title-reset">
+                    Вероятный диагноз
+                  </h2>
+                </div>
+                <div class="repeated-content__diagnosis repeated-diagnosis">
+                  <span class="repeated-diagnosis__text"
+                    >Нарушения моторики пищевода или функциональная изжога</span
+                  >
+                </div>
+                <div
+                  class="repeated-recommendations repeated-content__recommendations"
+                >
+                  <h2 class="repeated-content__title title-reset">
+                    Дополнительные обследования
+                  </h2>
+                  <div class="repeated-recommendations__text">
+                    Для подтверждения диагноза рекомендуется проведение
+                    дополнительного исследования
+                  </div>
+                  <div class="repeated-recommendations__item">
+                    <div class="repeated-recommendations__info">
+                      <h3 class="repeated-recommendations__title title-reset">
+                        Манометрия высокого разрешения
+                      </h3>
+                    </div>
+                    <img
+                      src="./img/icon-card-2.png"
+                      class="repeated-recommendations__icon"
+                    />
+                  </div>
                 </div>
                 <a
                   href="#"
@@ -2433,7 +2538,5 @@
         </div>
       </section>
     </main>
-
-    <script src="./js/script.js"></script>
   </body>
 </html>

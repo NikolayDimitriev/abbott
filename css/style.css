@@ -595,6 +595,9 @@ a {
   line-height: 150%;
   padding-left: 20px;
 }
+.repeated-header__back-btn_hidden {
+  display: none;
+}
 .repeated-header__back-btn::before {
   content: "";
   position: absolute;
@@ -891,6 +894,9 @@ a {
   width: 310px;
   height: 52px;
   position: relative;
+}
+.repeated-buttons__item_big {
+  width: 340px;
 }
 .repeated-buttons__item_full-width {
   width: 100%;

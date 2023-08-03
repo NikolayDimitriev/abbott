@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", function () {
+  const historyPaths = [];
   const header = document.querySelector(".repeated-header");
   const headerTitle = header.querySelector("#repeated-header-label");
   const headerPercent = header.querySelector("#repeated-header-percent");
@@ -48,6 +49,10 @@ window.addEventListener("DOMContentLoaded", function () {
     ".repeated-buttons__input"
   );
 
+  const slideTenButtons = getSlide("slide-10").querySelectorAll(
+    ".repeated-buttons__input"
+  );
+
   let activeSlide = allSlides[0];
 
   const enabledCheckboxes = {
@@ -77,16 +82,20 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   nextBtn.addEventListener("click", function () {
-    removeActiveClassFromSlideAndUpdatePathToBackBtn();
+    updatePathToBackBtn();
+
+    removeActiveClassFromSlide();
 
     hideNextBtn();
 
     switch (activeSlide.id) {
       case "slide-1": {
+        showBackBtn();
+
         if (enabledCheckboxes["checkbox-1"]) {
           updateActiveSlide("slide-2");
         } else {
-          updateActiveSlide("slide-in-work");
+          updateActiveSlide("slide-10");
         }
 
         break;
@@ -119,7 +128,13 @@ window.addEventListener("DOMContentLoaded", function () {
           const percent = calculateIndexFromEachSymptom(arr);
 
           if (percent > 50) {
-            showResultSlide("result-hypersensitive-esophagus");
+            if (enabledCheckboxes["checkbox-1"] === false) {
+              showResultSlide(
+                "result-esophageal-botility-disorders-or-functional-heartburn-2"
+              );
+            } else {
+              showResultSlide("result-hypersensitive-esophagus");
+            }
           } else if (enabledCheckboxes["checkbox-3"]) {
             updateActiveSlide("slide-7");
           } else if (enabledCheckboxes["checkbox-4"]) {
@@ -130,7 +145,13 @@ window.addEventListener("DOMContentLoaded", function () {
             );
           }
         } else if (slideFourButtons[0].checked) {
-          showResultSlide("result-hypersensitive-esophagus");
+          if (enabledCheckboxes["checkbox-1"] === false) {
+            showResultSlide(
+              "result-esophageal-botility-disorders-or-functional-heartburn-2"
+            );
+          } else {
+            showResultSlide("result-hypersensitive-esophagus");
+          }
         } else if (enabledCheckboxes["checkbox-3"]) {
           updateActiveSlide("slide-7");
         } else if (enabledCheckboxes["checkbox-4"]) {
@@ -207,23 +228,50 @@ window.addEventListener("DOMContentLoaded", function () {
 
         break;
       }
+      case "slide-10": {
+        // Clicked "No"
+        if (slideTenButtons[1].checked) {
+          showResultSlide("result-required-egds");
+        }
+
+        // Clicked "Yes"
+        if (slideTenButtons[0].checked) {
+          if (enabledCheckboxes["checkbox-2"]) {
+            updateActiveSlide("slide-3");
+          } else if (enabledCheckboxes["checkbox-3"]) {
+            updateActiveSlide("slide-7");
+          } else if (enabledCheckboxes["checkbox-4"]) {
+            updateActiveSlide("slide-5");
+          } else {
+            showResultSlide(
+              "result-violation-patency-esophageal-gastric-junction"
+            );
+          }
+        }
+
+        break;
+      }
     }
   });
 
   headerButtonBack.addEventListener("click", function () {
-    if (activeSlide.id === "slide-1") {
-      return;
-    }
-
     if (activeSlide.id[0] === "r") {
       footer.style.display = "block";
     }
+    showNextBtn();
 
-    activeSlide.classList.remove("repeated-content__slide--active");
+    removeActiveClassFromSlide();
+    debugger;
 
-    activeSlide = getSlide(headerButtonBack.dataset.slide);
+    removeCheckFromButtonsOfActiveSlide();
 
-    activeSlide.classList.add("repeated-content__slide--active");
+    activeSlide = getSlide(historyPaths.pop() || "slide-1");
+
+    addActiveClassToSlide();
+
+    if (activeSlide.id === "slide-1") {
+      hideBackBtn();
+    }
 
     updateHeaderById(activeSlide.id);
   });
@@ -298,144 +346,149 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  slideTenButtons.forEach(function (input) {
+    input.addEventListener("change", function () {
+      showNextBtn();
+    });
+  });
+
   function updateHeaderById(slideId) {
     switch (slideId) {
       case "slide-1":
-        updateHeader("Шаг 1: Уточняющие вопросы", "30%", "30%");
+        updateHeader("Шаг 1: Уточняющие вопросы", "30%");
         break;
       case "slide-2":
-        updateHeader("Шаг 1: Уточняющие вопросы", "50%", "50%");
+        updateHeader("Шаг 1: Уточняющие вопросы", "50%");
         break;
       case "slide-3":
-        updateHeader("Шаг 1: Уточняющие вопросы", "70%", "70%");
+        updateHeader("Шаг 1: Уточняющие вопросы", "70%");
         break;
       case "slide-4":
-        updateHeader("Шаг 1: Уточняющие вопросы", "70%", "70%");
+        updateHeader("Шаг 1: Уточняющие вопросы", "70%");
         break;
       case "slide-5":
-        updateHeader("Шаг 1: Уточняющие вопросы", "90%", "90%");
+        updateHeader("Шаг 1: Уточняющие вопросы", "90%");
         break;
       case "slide-6":
-        updateHeader("Шаг 1: Уточняющие вопросы", "70%", "70%");
+        updateHeader("Шаг 1: Уточняющие вопросы", "70%");
         break;
       case "slide-7":
-        updateHeader("Шаг 1: Уточняющие вопросы", "50%", "50%");
+        updateHeader("Шаг 1: Уточняющие вопросы", "50%");
         break;
       case "slide-8":
-        updateHeader("Шаг 1: Уточняющие вопросы", "70%", "70%");
+        updateHeader("Шаг 1: Уточняющие вопросы", "70%");
         break;
       case "slide-9":
-        updateHeader("Шаг 1: Уточняющие вопросы", "70%", "70%");
+        updateHeader("Шаг 1: Уточняющие вопросы", "70%");
+        break;
+      case "slide-10":
+        updateHeader("Шаг 1: Уточняющие вопросы", "50%");
         break;
       case "result-hypersensitive-esophagus":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-esophageal-botility-disorders-or-functional-heartburn":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
+          "100%"
+        );
+        break;
+      case "result-esophageal-botility-disorders-or-functional-heartburn-2":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
           "100%"
         );
         break;
       case "result-achalasia-esophagus":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-achalasia-esophagus-2":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-diffuse-esophageal-spasm":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-hernia-esophageal-orifice-diaphragm":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-study-ambiguous-conduct-egds":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-reflux-esophagitis":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-gerd-confirmed":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-violation-patency-esophageal-gastric-junction":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-nerd-func-heartburn-hypersensitive-esophagus":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-violation-motor-fucntion-thoracic-esophagus-lack-peristalsis":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-distal-esophagospasm":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-hypercontractile-esophagus":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-ineffective-peristalsis":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
           "100%"
         );
         break;
       case "result-functional-heartburn":
         updateHeader(
           "Шаг 2: Определение диагноза и составление плана терапии",
-          "100%",
+          "100%"
+        );
+        break;
+      case "result-required-egds":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
           "100%"
         );
         break;
@@ -444,29 +497,85 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function updateActiveSlide(slideId) {
     activeSlide = getSlide(slideId);
-    activeSlide.classList.add("repeated-content__slide--active");
+
+    addActiveClassToSlide();
+
     updateHeaderById(activeSlide.id);
   }
 
   function showResultSlide(slideId) {
     activeSlide = getSlide(slideId);
 
-    activeSlide.classList.add("repeated-content__slide--active");
+    addActiveClassToSlide();
 
     updateHeaderById(activeSlide.id);
 
     footer.style.display = "none";
   }
 
-  function removeActiveClassFromSlideAndUpdatePathToBackBtn() {
-    activeSlide.classList.remove("repeated-content__slide--active");
-    headerButtonBack.dataset.slide = activeSlide.id;
+  function addActiveClassToSlide() {
+    activeSlide.classList.add("repeated-content__slide--active");
   }
 
-  function updateHeader(title, percent, progress) {
+  function removeActiveClassFromSlide() {
+    activeSlide.classList.remove("repeated-content__slide--active");
+  }
+
+  function removeCheckFromButtonsOfActiveSlide() {
+    const slideId = activeSlide.id;
+    const btns = getActiveSlideButtons(slideId);
+    if (btns) {
+      btns.forEach(function (input) {
+        input.checked = false;
+      });
+    }
+  }
+
+  function getActiveSlideButtons(slideId) {
+    switch (slideId) {
+      case "slide-2": {
+        return slideTwoButtons;
+      }
+      case "slide-3": {
+        return slideThreeButtons;
+      }
+      case "slide-4": {
+        return slideFourButtons;
+      }
+      case "slide-6": {
+        return slideSixButtons;
+      }
+      case "slide-7": {
+        return slideSevenButtons;
+      }
+      case "slide-8": {
+        return slideEightButtons;
+      }
+      case "slide-9": {
+        return slideNineButtons;
+      }
+      case "slide-10": {
+        return slideTenButtons;
+      }
+    }
+  }
+
+  function updatePathToBackBtn() {
+    historyPaths.push(activeSlide.id);
+  }
+
+  function hideBackBtn() {
+    headerButtonBack.classList.add("repeated-header__back-btn_hidden");
+  }
+
+  function showBackBtn() {
+    headerButtonBack.classList.remove("repeated-header__back-btn_hidden");
+  }
+
+  function updateHeader(title, percent) {
     headerTitle.textContent = title;
     headerPercent.textContent = percent;
-    headerProgress.style.width = progress;
+    headerProgress.style.width = percent;
   }
 
   function getSlide(id) {
