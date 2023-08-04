@@ -1,0 +1,50 @@
+.repeated-plots {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+
+    @include small-tablet {
+      flex-direction: column;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+
+    padding: 24px 40px;
+
+    border-radius: 40px;
+    border: 1px solid var(--background-stroke);
+    background-color: var(--background-white);
+
+    font-family: Calibri;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+
+    @include hover {
+      color: var(--main-font-color);
+      border-color: var(--primary-main);
+      background-color: var(--background-blue);
+    }
+
+    &_active {
+      border-color: var(--primary-main);
+      background: var(--primary-main);
+      color: #fff;
+    }
+  }
+
+  &__strong {
+    font-weight: 700;
+  }
+}

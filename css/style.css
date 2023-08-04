@@ -668,6 +668,15 @@ a {
   line-height: 32px;
   text-transform: uppercase;
 }
+.repeated-content__hernia {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+.repeated-content__hernia .repeated-content__text {
+  margin: 0;
+}
 .repeated-content__main {
   width: 100%;
   display: flex;
@@ -1130,6 +1139,12 @@ a {
   border-radius: 4px;
   border: 1px solid var(--primary-main);
 }
+.repeated-diagnosis_row {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
 @media (max-width: 576px) {
   .repeated-diagnosis {
     margin-bottom: 24px;
@@ -1142,6 +1157,25 @@ a {
 }
 .repeated-diagnosis__text_important {
   color: var(--primary-main);
+}
+.repeated-diagnosis__text_grade {
+  color: var(--primary-main);
+  font-family: Calibri;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 135%; /* 48.6px */
+  text-transform: uppercase;
+  text-align: right;
+}
+@media (max-width: 576px) {
+  .repeated-diagnosis__text_grade {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    max-width: 150px;
+  }
 }
 .repeated-diagnosis_alone {
   margin-bottom: 0;
@@ -1218,6 +1252,10 @@ a {
   font-weight: 400;
   line-height: 25px; /* 125% */
 }
+.repeated-recommendations__elem_strong {
+  font-weight: 700;
+  color: var(--primary-main);
+}
 @media (max-width: 576px) {
   .repeated-recommendations__elem {
     font-size: 16px;
@@ -1257,6 +1295,9 @@ a {
     font-size: 16px;
     line-height: 20px; /* 125% */
   }
+}
+.repeated-recommendations__text_night, .repeated-recommendations__text_not-night {
+  display: none;
 }
 .repeated-recommendations__span {
   font-weight: 700;
@@ -1369,6 +1410,52 @@ a {
     font-size: 16px;
     line-height: 20px; /* 125% */
   }
+}
+
+.repeated-plots {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.repeated-plots__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+@media (max-width: 768px) {
+  .repeated-plots__wrapper {
+    flex-direction: column;
+  }
+}
+.repeated-plots__btn {
+  width: 100%;
+  padding: 24px 40px;
+  border-radius: 40px;
+  border: 1px solid var(--background-stroke);
+  background-color: var(--background-white);
+  font-family: Calibri;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+@media (any-hover: hover) {
+  .repeated-plots__btn:hover {
+    color: var(--main-font-color);
+    border-color: var(--primary-main);
+    background-color: var(--background-blue);
+  }
+}
+.repeated-plots__btn_active {
+  border-color: var(--primary-main);
+  background: var(--primary-main);
+  color: #fff;
+}
+.repeated-plots__strong {
+  font-weight: 700;
 }
 
 .repeated-warning {

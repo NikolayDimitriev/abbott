@@ -8,7 +8,13 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const allSlides = [...document.querySelectorAll(".repeated-content__slide")];
 
-  const checkboxes = document.querySelectorAll(".repeated-list__checkbox");
+  const checkboxes = getSlide("slide-1").querySelectorAll(
+    ".repeated-list__checkbox_slide-1"
+  );
+
+  const slideTwentyCheckboxes = getSlide("slide-12").querySelectorAll(
+    ".repeated-list__checkbox_slide-12"
+  );
 
   const tabSlideFour = getSlide("slide-4");
   const tabButton = tabSlideFour.querySelector(".repeated-tab__header");
@@ -16,6 +22,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const symptomsButtonSlideFive = getSlide("slide-5").querySelectorAll(
     ".repeated-symptoms__btn"
+  );
+  const plotsButtonSlideTwenty = getSlide("slide-12").querySelectorAll(
+    ".repeated-plots__btn"
   );
 
   const footer = document.querySelector(".repeated-footer");
@@ -70,6 +79,11 @@ window.addEventListener("DOMContentLoaded", function () {
     ["checkbox-4"]: false,
   };
 
+  const enabledSlideTwentyCheckboxes = {
+    ["slide-12-checkbox-1"]: false,
+    ["slide-12-checkbox-2"]: false,
+  };
+
   const symptomIndexInputValues = {
     ["symptom-index-x"]: null,
     ["symptom-index-y"]: null,
@@ -86,6 +100,14 @@ window.addEventListener("DOMContentLoaded", function () {
       } else {
         hideNextBtn();
       }
+    });
+  });
+
+  slideTwentyCheckboxes.forEach(function (checkbox) {
+    checkbox.addEventListener("change", function (e) {
+      const target = e.target;
+
+      enabledSlideTwentyCheckboxes[target.name] = target.checked;
     });
   });
 
@@ -142,24 +164,18 @@ window.addEventListener("DOMContentLoaded", function () {
           const percent = calculateIndexFromEachSymptom(arr);
 
           if (percent > 50) {
-            showResultSlide(
-              "result-esophageal-botility-disorders-or-functional-heartburn-2"
-            );
-          } else if (enabledCheckboxes["checkbox-3"]) {
-            updateActiveSlide("slide-7");
-          } else if (enabledCheckboxes["checkbox-4"]) {
-            updateActiveSlide("slide-5");
+            showResultSlide("result-hypersensitive-esophagus");
           }
 
           if (percent <= 50) {
-            if (enabledCheckboxes["checkbox-1"]) {
-              showResultSlide(
-                "result-esophageal-botility-disorders-or-functional-heartburn"
-              );
-            } else if (enabledCheckboxes["checkbox-3"]) {
+            if (enabledCheckboxes["checkbox-3"]) {
               updateActiveSlide("slide-7");
             } else if (enabledCheckboxes["checkbox-4"]) {
               updateActiveSlide("slide-5");
+            } else if (enabledCheckboxes["checkbox-1"]) {
+              showResultSlide(
+                "result-esophageal-botility-disorders-or-functional-heartburn"
+              );
             } else {
               showResultSlide(
                 "result-esophageal-botility-disorders-or-functional-heartburn-2"
@@ -173,21 +189,17 @@ window.addEventListener("DOMContentLoaded", function () {
         // ! выбор по кнопке
         if (slideFourButtons[0].checked) {
           showResultSlide("result-hypersensitive-esophagus");
-        } else if (enabledCheckboxes["checkbox-3"]) {
-          updateActiveSlide("slide-7");
-        } else if (enabledCheckboxes["checkbox-4"]) {
-          updateActiveSlide("slide-5");
         }
 
         if (slideFourButtons[1].checked) {
-          if (enabledCheckboxes["checkbox-1"]) {
-            showResultSlide(
-              "result-esophageal-botility-disorders-or-functional-heartburn"
-            );
-          } else if (enabledCheckboxes["checkbox-3"]) {
+          if (enabledCheckboxes["checkbox-3"]) {
             updateActiveSlide("slide-7");
           } else if (enabledCheckboxes["checkbox-4"]) {
             updateActiveSlide("slide-5");
+          } else if (enabledCheckboxes["checkbox-1"]) {
+            showResultSlide(
+              "result-esophageal-botility-disorders-or-functional-heartburn"
+            );
           } else {
             showResultSlide(
               "result-esophageal-botility-disorders-or-functional-heartburn-2"
@@ -298,6 +310,29 @@ window.addEventListener("DOMContentLoaded", function () {
         if (slideElevenButtons[5].checked) {
           updateActiveSlide("slide-12");
         }
+        break;
+      }
+      case "slide-12": {
+        const selectedBtnIndex = [...plotsButtonSlideTwenty].findIndex(
+          function (elem) {
+            return elem.classList.contains("repeated-plots__btn_active");
+          }
+        );
+
+        if (selectedBtnIndex === 0) {
+          addBlocksDependingCheckbox("result-gerd-grade-a-esophagitis");
+          showResultSlide("result-gerd-grade-a-esophagitis");
+        } else if (selectedBtnIndex === 1) {
+          addBlocksDependingCheckbox("result-gerd-grade-b-esophagitis");
+          showResultSlide("result-gerd-grade-b-esophagitis");
+        } else if (selectedBtnIndex === 2) {
+          addBlocksDependingCheckbox("result-gerd-grade-c-esophagitis");
+          showResultSlide("result-gerd-grade-c-esophagitis");
+        } else {
+          addBlocksDependingCheckbox("result-gerd-grade-d-esophagitis");
+          showResultSlide("result-gerd-grade-d-esophagitis");
+        }
+
         break;
       }
     }
@@ -428,6 +463,18 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  plotsButtonSlideTwenty.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      plotsButtonSlideTwenty.forEach(function (button) {
+        if (button !== btn) {
+          button.classList.remove("repeated-plots__btn_active");
+        }
+      });
+      btn.classList.add("repeated-plots__btn_active");
+      showNextBtn();
+    });
+  });
+
   function updateHeaderById(slideId) {
     switch (slideId) {
       case "slide-1":
@@ -461,6 +508,9 @@ window.addEventListener("DOMContentLoaded", function () {
         updateHeader("Шаг 1: Уточняющие вопросы", "50%");
         break;
       case "slide-11":
+        updateHeader("Шаг 1: Уточняющие вопросы", "70%");
+        break;
+      case "slide-12":
         updateHeader("Шаг 1: Уточняющие вопросы", "70%");
         break;
       case "result-hypersensitive-esophagus":
@@ -577,6 +627,30 @@ window.addEventListener("DOMContentLoaded", function () {
           "100%"
         );
         break;
+      case "result-gerd-grade-a-esophagitis":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%"
+        );
+        break;
+      case "result-gerd-grade-b-esophagitis":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%"
+        );
+        break;
+      case "result-gerd-grade-c-esophagitis":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%"
+        );
+        break;
+      case "result-gerd-grade-d-esophagitis":
+        updateHeader(
+          "Шаг 2: Определение диагноза и составление плана терапии",
+          "100%"
+        );
+        break;
     }
   }
 
@@ -598,6 +672,45 @@ window.addEventListener("DOMContentLoaded", function () {
     footer.style.display = "none";
   }
 
+  function addBlocksDependingCheckbox(slideId) {
+    const grade = document.getElementById(slideId);
+    const nightSyptomText = grade.querySelector(
+      ".repeated-recommendations__text_night"
+    );
+    const advantage = grade.querySelector(
+      ".repeated-recommendations__elem_strong"
+    );
+    const notNightSyptomText = grade.querySelector(
+      ".repeated-recommendations__text_not-night"
+    );
+    const hernia = grade.querySelector(".repeated-content__hernia");
+
+    if (
+      enabledSlideTwentyCheckboxes["slide-12-checkbox-1"] &&
+      enabledSlideTwentyCheckboxes["slide-12-checkbox-2"]
+    ) {
+      nightSyptomText.style.display = "block";
+      advantage.style.display = "list-item";
+      notNightSyptomText.style.display = "none";
+      hernia.style.display = "flex";
+    } else if (enabledSlideTwentyCheckboxes["slide-12-checkbox-1"]) {
+      notNightSyptomText.style.display = "block";
+      nightSyptomText.style.display = "none";
+      advantage.style.display = "none";
+      hernia.style.display = "flex";
+    } else if (enabledSlideTwentyCheckboxes["slide-12-checkbox-2"]) {
+      nightSyptomText.style.display = "block";
+      advantage.style.display = "list-item";
+      notNightSyptomText.style.display = "none";
+      hernia.style.display = "none";
+    } else {
+      hernia.style.display = "none";
+      advantage.style.display = "none";
+      notNightSyptomText.style.display = "block";
+      nightSyptomText.style.display = "none";
+    }
+  }
+
   function addActiveClassToSlide() {
     activeSlide.classList.add("repeated-content__slide--active");
   }
@@ -608,15 +721,28 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function removeCheckFromButtonsOfActiveSlide() {
     const slideId = activeSlide.id;
+    const inputs = getActiveSlideInputs(slideId);
+    if (inputs) {
+      inputs.forEach(function (input) {
+        input.checked = false;
+      });
+    }
+
     const btns = getActiveSlideButtons(slideId);
     if (btns) {
-      btns.forEach(function (input) {
-        input.checked = false;
+      btns.forEach(function (btn) {
+        if (btn.classList.contains("repeated-symptoms__btn_active")) {
+          btn.classList.remove("repeated-symptoms__btn_active");
+        }
+
+        if (btn.classList.contains("repeated-plots__btn_active")) {
+          btn.classList.remove("repeated-plots__btn_active");
+        }
       });
     }
   }
 
-  function getActiveSlideButtons(slideId) {
+  function getActiveSlideInputs(slideId) {
     switch (slideId) {
       case "slide-2": {
         return slideTwoButtons;
@@ -642,8 +768,19 @@ window.addEventListener("DOMContentLoaded", function () {
       case "slide-10": {
         return slideTenButtons;
       }
-      case "slide-10": {
+      case "slide-11": {
         return slideElevenButtons;
+      }
+    }
+  }
+
+  function getActiveSlideButtons(slideId) {
+    switch (slideId) {
+      case "slide-5": {
+        return symptomsButtonSlideFive;
+      }
+      case "slide-12": {
+        return plotsButtonSlideTwenty;
       }
     }
   }
