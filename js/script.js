@@ -740,6 +740,11 @@ window.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
+
+    if (slideId === "slide-11") {
+      dangerousBlocks[0].classList.remove("repeated-content__dangerous_active");
+      dangerousBlocks[1].classList.remove("repeated-content__dangerous_active");
+    }
   }
 
   function getActiveSlideInputs(slideId) {
@@ -825,7 +830,7 @@ window.addEventListener("DOMContentLoaded", function () {
     arr = Object.values(symptomIndexInputValues)
   ) {
     for (let i = 0; i < arr.length; i++) {
-      if (!arr[i]) {
+      if (arr[i] === null || arr[i] <= 0) {
         return false;
       }
     }
