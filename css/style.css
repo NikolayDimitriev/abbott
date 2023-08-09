@@ -394,7 +394,7 @@ body {
   color: var(--main-font-color);
 }
 
-img {
+.repeated img {
   height: auto;
   max-width: 100%;
   -o-object-fit: cover;
@@ -674,8 +674,18 @@ a {
   gap: 12px;
   width: 100%;
 }
-.repeated-content__hernia .repeated-content__text {
+.repeated-content__text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 125% */
   margin: 0;
+}
+@media (max-width: 576px) {
+  .repeated-content__text {
+    font-size: 16px;
+    line-height: 20px; /* 125% */
+  }
 }
 .repeated-content__main {
   width: 100%;
@@ -821,6 +831,12 @@ a {
     color: #fff;
   }
 }
+@media (max-width: 576px) {
+  .repeated-content__link_end {
+    width: 100%;
+    margin-top: 24px;
+  }
+}
 .repeated-content__link_white {
   border: 1px solid var(--primary-main);
   background-color: #fff;
@@ -835,6 +851,7 @@ a {
 }
 @media (max-width: 576px) {
   .repeated-content__link_white {
+    width: 100%;
     margin-top: 12px;
   }
 }
@@ -1236,6 +1253,7 @@ a {
   margin: 0;
   padding-left: 30px;
   max-width: 100%;
+  list-style: disc;
 }
 @media (max-width: 576px) {
   .repeated-recommendations__list {
@@ -1394,6 +1412,7 @@ a {
   padding-left: 30px;
   flex-shrink: 0;
   max-width: 534px;
+  list-style: disc;
 }
 .repeated-symptoms__list_alone {
   max-width: 100%;

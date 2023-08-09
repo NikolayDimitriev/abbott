@@ -22,10 +22,12 @@ body {
   color: var(--main-font-color);
 }
 
-img {
-  height: auto;
-  max-width: 100%;
-  object-fit: cover;
+.repeated {
+  img {
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
 }
 
 a {
