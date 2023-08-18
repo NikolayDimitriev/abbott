@@ -1,4 +1,4 @@
-.repeated {
+.controle-test {
   display: none;
   width: 100%;
   padding: 40px 0;
@@ -72,24 +72,20 @@
   }
 }
 
-@import "./repeated/header";
+@import "./control/header";
 
-@import "./repeated/footer";
+@import "./control/footer";
 
-@import "./repeated/contentBlock";
+@import "./control/contentBlock";
 
-@import "./repeated/checkboxList";
+@import "./control/buttonsBlock";
 
-@import "./repeated/buttonsBlock";
+@import "./control/diagnosisBlock";
 
-@import "./repeated/tabsBlock";
+@import "./control/recommendationsBlock";
 
-@import "./repeated/diagnosisBlock";
+@import "./control/warning";
 
-@import "./repeated/recommendationsBlock";
+@import "./control/calculator";
 
-@import "./repeated/symptomsBlock";
-
-@import "./repeated/plotsBlock";
-
-@import "./repeated/warning";
+@import "./control/select";

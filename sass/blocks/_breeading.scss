@@ -1,0 +1,401 @@
+.breeading-page {
+  width: 100%;
+  display: none;
+
+  .consult-banner {
+    position: relative;
+    display: block;
+    width: 100%;
+    &__img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+    }
+    &__container {
+      width: 100%;
+      margin: 0 auto;
+      max-width: 1240px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    &__content {
+      position: relative;
+      z-index: 2;
+      padding: 86px 0;
+      display: block;
+      width: 100%;
+      max-width: 770px;
+      @include medium-tablet {
+        max-width: 570px;
+      }
+      @include small-tablet {
+        max-width: 440px;
+        padding: 66px 0;
+      }
+      @include mobile {
+        max-width: 340px;
+        padding: 46px 0;
+      }
+    }
+    &__content__title {
+      display: block;
+      width: 100%;
+      margin: 0 0 12px;
+      color: #fff;
+      font-size: 43px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 52px;
+      text-transform: uppercase;
+      @include medium-tablet {
+        font-size: 30px;
+        line-height: 40px;
+      }
+      @include small-tablet {
+        font-size: 26px;
+        line-height: 36px;
+      }
+      @include mobile {
+        font-size: 26px;
+        line-height: 32px;
+      }
+    }
+    &__content__desc {
+      display: block;
+      width: 100%;
+      margin: 0;
+      color: #fff;
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 42px;
+      @include medium-tablet {
+        font-size: 22px;
+        line-height: 28px;
+      }
+      @include small-tablet {
+        font-size: 20px;
+        line-height: 25px;
+      }
+      @include mobile {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .consult-info {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 40px 0;
+    background: var(--background-blue, #e6f7ff);
+    @include mobile {
+      padding: 20px 0;
+    }
+    &__container {
+      width: 100%;
+      margin: 0 auto;
+      max-width: 1240px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0px;
+    }
+    &__reception {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin: 0 0 20px;
+      padding: 30px;
+      border-radius: 16px;
+      background: var(--primary-gastro, #00b140);
+      @include mobile {
+        padding: 20px;
+      }
+    }
+    &__reception__title {
+      display: block;
+      width: 100%;
+      margin: 0 0 15px;
+      color: #fff;
+      font-size: 47px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 55px;
+      @include big-desktop {
+        font-size: 40px;
+        line-height: 48px;
+      }
+      @include medium-tablet {
+        font-size: 30px;
+        line-height: 38px;
+      }
+      @include mobile {
+        font-size: 26px;
+        line-height: 34px;
+      }
+      @include mini-mobile {
+        font-size: 22px;
+        line-height: 28px;
+      }
+    }
+    &__reception__desc {
+      display: block;
+      width: 100%;
+      color: #fff;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px;
+      @include medium-tablet {
+        font-size: 20px;
+        line-height: 28px;
+      }
+      @include mobile {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      @include mini-mobile {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+    &__reception__items {
+      @include flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 50px -14px 0;
+      border-top: 1px solid #fff;
+      @include medium-tablet {
+        margin-top: 30px;
+      }
+      @include mobile {
+        margin-top: 20px;
+      }
+    }
+    &__reception__item {
+      @include flex;
+      flex-direction: column;
+      flex: 0 0 calc(33.33% - 28px);
+      width: calc(33.33% - 28px);
+      margin: 20px 14px 0;
+      @include medium-tablet {
+        flex: 0 0 calc(50% - 28px);
+        width: calc(50% - 28px);
+      }
+      @include small-tablet {
+        flex: 0 0 calc(100% - 28px);
+        width: calc(100% - 28px);
+        max-width: 400px;
+      }
+    }
+    &__reception__item__title {
+      display: block;
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px;
+      opacity: 0.5;
+      @include tablet {
+        text-align: center;
+      }
+    }
+    &__reception__item__block {
+      @include flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      justify-content: space-between;
+      padding: 20px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.25);
+    }
+    &__reception__item__list {
+      display: block;
+      width: 100%;
+    }
+    &__reception__item__desc {
+      display: block;
+      width: 100%;
+      margin: 0 0 18px;
+      padding: 0 0 18px;
+      color: #000;
+      font-size: 20.284px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 23.665px;
+      border-bottom: 1px solid #d9d9d9;
+      &:last-of-type {
+        border: none;
+        margin: 0;
+      }
+      @include mobile {
+        margin: 0 0 12px;
+        padding: 0 0 12px;
+        font-size: 18px;
+      }
+      @include mini-mobile {
+        margin: 0 0 10px;
+        padding: 0 0 10px;
+        font-size: 16px;
+      }
+    }
+    &__reception__item__link {
+      display: block;
+      background-color: transparent;
+      width: 100%;
+      padding: 8px 16px;
+      color: #000;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: center;
+      border-radius: 20px;
+      border: 1px solid #00b140;
+      transition: color 0.3s, background 0.3s;
+      cursor: pointer;
+
+      @include hover {
+        color: #fff;
+        background: #00b140;
+      }
+    }
+    &__help {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin: 0 0 20px;
+      padding: 30px 44px 36px;
+      border-radius: 16px;
+      border: 1px solid #00b140;
+      background: #fff;
+      @include small-tablet {
+        padding: 26px 26px 32px;
+      }
+      @include mobile {
+        padding: 26px 20px 32px;
+      }
+    }
+    &__help__title {
+      position: relative;
+      display: block;
+      width: 100%;
+      color: #00b140;
+      font-size: 43px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 52px;
+      text-transform: uppercase;
+      @include medium-tablet {
+        font-size: 30px;
+        line-height: 40px;
+      }
+      @include small-tablet {
+        font-size: 26px;
+        line-height: 32px;
+      }
+      @include mobile {
+        font-size: 22px;
+        line-height: 28px;
+      }
+      @include mini-mobile {
+        font-size: 20px;
+        line-height: 25px;
+        margin-bottom: 10px;
+      }
+    }
+    &__help__list {
+      @include flex;
+      flex-wrap: wrap;
+      margin: 0 -12px 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    &__help__list__item {
+      @include flex;
+      flex: 0 0 calc(25% - 24px);
+      width: calc(25% - 24px);
+      margin: 25px 12px 0;
+      padding: 0;
+      list-style-type: none;
+      color: var(--main-font-color, #343a40);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 25px;
+      &::before {
+        content: "";
+        flex: 0 0 26px;
+        width: 26px;
+        height: 26px;
+        margin: 0 21px 0 0;
+        background: rgba(230, 247, 255, 1) url("../img/icon-consult-help.svg")
+          no-repeat center;
+        background-size: auto;
+        border-radius: 100%;
+      }
+      @include big-desktop {
+        flex: 0 0 calc(50% - 24px);
+        width: calc(50% - 24px);
+      }
+      @include mobile {
+        flex: 0 0 calc(100% - 24px);
+        width: calc(100% - 24px);
+      }
+      @include mini-mobile {
+        font-size: 18px;
+        margin-top: 15px;
+        &::before {
+          margin-right: 15px;
+        }
+      }
+    }
+    &__button {
+      position: relative;
+      margin: 0 0 20px;
+      padding: 24px;
+      border-radius: 4px;
+      background: var(--background-white, #fff);
+      box-shadow: 0px 0px 22px 0px rgba(178, 212, 240, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-transform: uppercase;
+      color: var(--primary-main);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 25px;
+      svg {
+        flex: 0 0 16px;
+        width: 16px;
+        height: 16px;
+        margin-left: 42px;
+      }
+      @include mobile {
+        font-size: 16px;
+        line-height: 20px;
+        padding: 16px;
+      }
+    }
+    &__desc {
+      color: var(--text-secondary, #8c8c8c);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+    }
+  }
+}

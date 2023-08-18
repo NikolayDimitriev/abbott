@@ -30,6 +30,22 @@ body {
   }
 }
 
+.controle-test {
+  img {
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+.breeading-page {
+  img {
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -71,3 +87,5 @@ a {
     display: none;
   }
 }
+
+

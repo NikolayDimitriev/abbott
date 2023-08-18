@@ -4,4 +4,14 @@
 @import "./mixins";
 @import "./settings";
 
+@import "./blocks/breeading";
+
 @import "./blocks/repeated";
+
+@import "./blocks/control-test";
+
+@import "./blocks/first/first";
+
+.active-page {
+  display: block;
+}

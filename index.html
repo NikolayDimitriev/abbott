@@ -5,12 +5,1382 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Abbott Test</title>
-    <script defer src="./js/script.js"></script>
+    <title>Abbott Tests</title>
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script defer src="./js/start.js"></script>
+
+    <script defer src="./js/dataBase.js"></script>
+    <script defer src="./js/quiz.js"></script>
+    <script defer src="./js/first.js"></script>
+
+    <script defer src="./js/repeated.js"></script>
+    <script defer src="./js/control.js"></script>
   </head>
 
   <body>
-    <main class="repeated">
+    <div class="breeading-page active-page" id="start-page">
+      <section class="consult-banner">
+        <img
+          class="consult-banner__img"
+          src="./img/consult-banner.jpg"
+          alt="consult-banner"
+        />
+        <div class="consult-banner__container">
+          <div class="consult-banner__content">
+            <div class="consult-banner__content__title">
+              Цифровой консультант врача
+            </div>
+            <div class="consult-banner__content__desc">
+              Индивидуальные решения по ведению пациента на основе клинических
+              рекомендаций, стандартов и международных баз знаний
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="consult-info">
+        <div class="consult-info__container">
+          <div class="consult-info__reception">
+            <div class="consult-info__reception__title">
+              Гастроэзофагеальная рефлюксная болезнь (ГЭРБ)
+            </div>
+            <div class="consult-info__reception__desc">
+              Выберите прием и нажмите кнопку “начать”, чтобы смоделировать
+              клинический случай и получить экспертную консультацию по ведению
+              вашего пациента
+            </div>
+            <div class="consult-info__reception__items">
+              <div class="consult-info__reception__item">
+                <div class="consult-info__reception__item__title">
+                  Первичный прием
+                </div>
+                <div class="consult-info__reception__item__block">
+                  <div class="consult-info__reception__item__list">
+                    <div class="consult-info__reception__item__desc">
+                      Анализ жалоб
+                    </div>
+                    <div class="consult-info__reception__item__desc">
+                      План обследования
+                    </div>
+                    <div class="consult-info__reception__item__desc">
+                      Предварительный диагноз
+                    </div>
+                    <div class="consult-info__reception__item__desc">
+                      Эмпирическая терапия
+                    </div>
+                  </div>
+                  <button
+                    class="consult-info__reception__item__link"
+                    data-page="1"
+                  >
+                    Начать
+                  </button>
+                </div>
+              </div>
+              <div class="consult-info__reception__item">
+                <div class="consult-info__reception__item__title">
+                  Повторный прием
+                </div>
+                <div class="consult-info__reception__item__block">
+                  <div class="consult-info__reception__item__list">
+                    <div class="consult-info__reception__item__desc">
+                      Интерпретация результатов обследования
+                    </div>
+                    <div class="consult-info__reception__item__desc">
+                      Подтверждение диагноза
+                    </div>
+                    <div class="consult-info__reception__item__desc">
+                      Планирование терапии
+                    </div>
+                  </div>
+                  <button
+                    class="consult-info__reception__item__link"
+                    data-page="2"
+                  >
+                    Начать
+                  </button>
+                </div>
+              </div>
+              <div class="consult-info__reception__item">
+                <div class="consult-info__reception__item__title">
+                  Контрольный прием
+                </div>
+                <div class="consult-info__reception__item__block">
+                  <div class="consult-info__reception__item__list">
+                    <div class="consult-info__reception__item__desc">
+                      Оценка эффективности терапии
+                    </div>
+                    <div class="consult-info__reception__item__desc">
+                      Депрескрайбинг*
+                    </div>
+                    <div class="consult-info__reception__item__desc">
+                      Преодоление рефрактерности
+                    </div>
+                  </div>
+                  <button
+                    class="consult-info__reception__item__link"
+                    data-page="3"
+                  >
+                    Начать
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="consult-info__help">
+            <div class="consult-info__help__title">
+              Чем поможет цифровой консультант
+            </div>
+            <ul class="consult-info__help__list">
+              <li class="consult-info__help__list__item">
+                Подбор фармакотерапии
+              </li>
+              <li class="consult-info__help__list__item">
+                Проверка межлекарственных взаимодействий
+              </li>
+              <li class="consult-info__help__list__item">
+                Дифференциальная диагностика
+              </li>
+              <li class="consult-info__help__list__item">
+                Интерпретация результатов диагностики
+              </li>
+            </ul>
+          </div>
+          <a href="#" class="consult-info__button">
+            <span>Ключевые источники информации</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="17"
+              viewBox="0 0 16 17"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M4.89164 2.73051C5.19205 2.42487 5.67909 2.42487 5.9795 2.73051L11.1077 7.94791C11.252 8.09467 11.333 8.29373 11.333 8.5013C11.333 8.70885 11.252 8.90791 11.1077 9.05469L5.9795 14.2721C5.67909 14.5777 5.19205 14.5777 4.89164 14.2721C4.59124 13.9664 4.59124 13.4709 4.89164 13.1653L9.47593 8.5013L4.89164 3.83729C4.59124 3.53166 4.59124 3.03614 4.89164 2.73051Z"
+                fill="#009CDE"
+              ></path>
+            </svg>
+          </a>
+          <div class="consult-info__desc">
+            *Депрескрайбинг - это процесс снижения дозировки, приостановки
+            приема или полной отмены лекарственного препарата с целью снижения
+            полипрагмазии и улучшения результатов лечения.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="section-wrap">
+      <section class="section gastro-calculator-wrap">
+        <div class="container">
+          <div class="row">
+            <div class="gastro-calculator-card">
+              <div class="gastro-calculator-header">
+                <div id="header-label" class="gastro-calculator-header__label">
+                  Шаг 1: Сбор симптомов
+                </div>
+                <div
+                  id="header-percent"
+                  class="gastro-calculator-header__percent"
+                >
+                  33%
+                </div>
+                <div
+                  id="progress-bar"
+                  class="gastro-calculator-header__bar progress-bar"
+                >
+                  <span style="width: 33.3333%"></span>
+                </div>
+              </div>
+              <div class="gastro-calculator-content">
+                <div
+                  id="first-slide-1"
+                  class="gastro-calculator-slide is-active"
+                >
+                  <div class="calculator-slide calculator-slide--columns">
+                    <div class="calculator-slide-column">
+                      <div class="calculator-btn-wrap btn-wrap">
+                        <button
+                          class="btn-back-to btn-reset go-to-back"
+                          data-slide="#start-page"
+                        >
+                          Назад
+                        </button>
+                      </div>
+                      <div class="calculator-title">жалобы пациента</div>
+                      <div class="calculator-text">
+                        <p>Добавьте все симпомы, которые беспокоят пациента</p>
+                      </div>
+                      <div class="fast-search">
+                        <div class="fast-search__input">
+                          <input
+                            type="text"
+                            id="fast-search-input"
+                            placeholder="Поиск симптомов"
+                          />
+                        </div>
+                        <div class="fast-search__dropdown">
+                          <div class="search-dropdown">
+                            <div id="search-output"></div>
+                            <div
+                              id="nothing-found"
+                              class="search-dropdown__item btn-reset pointer-events-none"
+                            >
+                              Начните вводить...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="calculator-bottom">
+                        <div class="often-searched">
+                          <div class="often-searched__label">Часто ищут:</div>
+                          <div
+                            id="horizontal-symptoms"
+                            class="often-searched__content"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="calculator-slide-column">
+                      <div class="calculator-btn-wrap btn-wrap hide-on-mobile">
+                        <a href="#" class="btn-back-to dummy">dummy</a>
+                      </div>
+                      <div class="calculator-header">
+                        <div class="calculator-title">Добавленные симптомы</div>
+                        <button
+                          class="btn-as-link btn-reset clear-all-symptoms"
+                        >
+                          Сбросить все
+                        </button>
+                      </div>
+                      <div id="added-symptoms" class="added-symptoms"></div>
+                      <div class="calculator-bottom btn-wrap btn-wrap--end">
+                        <button
+                          id="go-to-test"
+                          class="btn btn--250 btn-reset hide go-to-next"
+                          data-slide="#first-slide-2"
+                        >
+                          Продолжить
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="first-slide-2" class="gastro-calculator-slide">
+                  <div class="gastro-calculator-slide__header">
+                    <div class="calculator-btn-wrap btn-wrap">
+                      <button
+                        class="btn-back-to btn-reset go-to-back"
+                        data-slide="#first-slide-1"
+                      >
+                        Назад
+                      </button>
+                    </div>
+                    <div class="calculator-title">ТЕСТ gerd Q</div>
+                    <div class="calculator-text">
+                      <p>За последнюю неделю:</p>
+                    </div>
+                  </div>
+                  <div
+                    class="calculator-slide calculator-slide--columns calculator-slide--test"
+                  >
+                    <div class="calculator-slide-column">
+                      <div class="question-item">
+                        <div class="question-item__label" data-counter="1.">
+                          Как часто пациент ощущал изжогу (чувство жжения за
+                          грудиной)?
+                        </div>
+                        <div class="question-item__buttons hide-on-mobile">
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="1"
+                            data-points="0"
+                          >
+                            0 дней
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="1"
+                            data-points="1"
+                          >
+                            1 день
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="1"
+                            data-points="2"
+                          >
+                            2-3 дня
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="1"
+                            data-points="3"
+                          >
+                            4-7 дней
+                          </button>
+                        </div>
+                        <div class="question-item__selects show-on-mobile">
+                          <div class="select select--closed">
+                            <div
+                              data-default="Выберите ответ"
+                              class="select__selected"
+                            >
+                              <span>Выберите ответ</span>
+                            </div>
+                            <div class="select__select">
+                              <div class="select__wrap">
+                                <button
+                                  data-text="0 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="1"
+                                  data-points="0"
+                                >
+                                  <span>0 дней</span>
+                                </button>
+                                <button
+                                  data-text="1 день"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="1"
+                                  data-points="1"
+                                >
+                                  <span>1 день</span>
+                                </button>
+                                <button
+                                  data-text="2-3 дня"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="1"
+                                  data-points="2"
+                                >
+                                  <span>2-3 дня</span>
+                                </button>
+                                <button
+                                  data-text="4-7 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="1"
+                                  data-points="3"
+                                >
+                                  <span>4-7 дней</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input type="hidden" class="question-item__input" />
+                      </div>
+                      <div class="question-item">
+                        <div class="question-item__label" data-counter="2.">
+                          Как часто пациент отмечал, что содержимое желудка
+                          (жидкость либо пища) снова попадает в глотку или
+                          полость рта (отрыжка)?
+                        </div>
+                        <div class="question-item__buttons hide-on-mobile">
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="2"
+                            data-points="0"
+                          >
+                            0 дней
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="2"
+                            data-points="1"
+                          >
+                            1 день
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="2"
+                            data-points="2"
+                          >
+                            2-3 дня
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="2"
+                            data-points="3"
+                          >
+                            4-7 дней
+                          </button>
+                        </div>
+                        <div class="question-item__selects show-on-mobile">
+                          <div class="select select--closed">
+                            <div
+                              data-default="Выберите ответ"
+                              class="select__selected"
+                            >
+                              <span>Выберите ответ</span>
+                            </div>
+                            <div class="select__select">
+                              <div class="select__wrap">
+                                <button
+                                  data-text="0 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="2"
+                                  data-points="0"
+                                >
+                                  <span>0 дней</span>
+                                </button>
+                                <button
+                                  data-text="1 день"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="2"
+                                  data-points="1"
+                                >
+                                  <span>1 день</span>
+                                </button>
+                                <button
+                                  data-text="2-3 дня"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="2"
+                                  data-points="2"
+                                >
+                                  <span>2-3 дня</span>
+                                </button>
+                                <button
+                                  data-text="4-7 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="2"
+                                  data-points="3"
+                                >
+                                  <span>4-7 дней</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input type="hidden" class="question-item__input" />
+                      </div>
+                      <div class="question-item">
+                        <div class="question-item__label" data-counter="3.">
+                          Как часто пациент ощущал боль в центре верхней части
+                          живота?
+                        </div>
+                        <div class="question-item__buttons hide-on-mobile">
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="3"
+                            data-points="3"
+                          >
+                            0 дней
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="3"
+                            data-points="2"
+                          >
+                            1 день
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="3"
+                            data-points="1"
+                          >
+                            2-3 дня
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="3"
+                            data-points="0"
+                          >
+                            4-7 дней
+                          </button>
+                        </div>
+                        <div class="question-item__selects show-on-mobile">
+                          <div class="select select--closed">
+                            <div
+                              data-default="Выберите ответ"
+                              class="select__selected"
+                            >
+                              <span>Выберите ответ</span>
+                            </div>
+                            <div class="select__select">
+                              <div class="select__wrap">
+                                <button
+                                  data-text="0 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="3"
+                                  data-points="3"
+                                >
+                                  <span>0 дней</span>
+                                </button>
+                                <button
+                                  data-text="1 день"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="3"
+                                  data-points="2"
+                                >
+                                  <span>1 день</span>
+                                </button>
+                                <button
+                                  data-text="2-3 дня"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="3"
+                                  data-points="1"
+                                >
+                                  <span>2-3 дня</span>
+                                </button>
+                                <button
+                                  data-text="4-7 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="3"
+                                  data-points="0"
+                                >
+                                  <span>4-7 дней</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input type="hidden" class="question-item__input" />
+                      </div>
+                    </div>
+                    <div class="calculator-slide-column">
+                      <div class="question-item">
+                        <div class="question-item__label" data-counter="4.">
+                          Как часто пациент ощущал тошноту?
+                        </div>
+                        <div class="question-item__buttons hide-on-mobile">
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="4"
+                            data-points="3"
+                          >
+                            0 дней
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="4"
+                            data-points="2"
+                          >
+                            1 день
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="4"
+                            data-points="1"
+                          >
+                            2-3 дня
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="4"
+                            data-points="0"
+                          >
+                            4-7 дней
+                          </button>
+                        </div>
+                        <div class="question-item__selects show-on-mobile">
+                          <div class="select select--closed">
+                            <div
+                              data-default="Выберите ответ"
+                              class="select__selected"
+                            >
+                              <span>Выберите ответ</span>
+                            </div>
+                            <div class="select__select">
+                              <div class="select__wrap">
+                                <button
+                                  data-text="0 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="4"
+                                  data-points="3"
+                                >
+                                  <span>0 дней</span>
+                                </button>
+                                <button
+                                  data-text="1 день"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="4"
+                                  data-points="2"
+                                >
+                                  <span>1 день</span>
+                                </button>
+                                <button
+                                  data-text="2-3 дня"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="4"
+                                  data-points="1"
+                                >
+                                  <span>2-3 дня</span>
+                                </button>
+                                <button
+                                  data-text="4-7 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="4"
+                                  data-points="0"
+                                >
+                                  <span>4-7 дней</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input type="hidden" class="question-item__input" />
+                      </div>
+                      <div class="question-item">
+                        <div class="question-item__label" data-counter="5.">
+                          Как часто изжога и/или отрыжка мешали пациенту хорошо
+                          выспаться ночью?
+                        </div>
+                        <div class="question-item__buttons hide-on-mobile">
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="5"
+                            data-points="0"
+                          >
+                            0 дней
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="5"
+                            data-points="1"
+                          >
+                            1 день
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="5"
+                            data-points="2"
+                          >
+                            2-3 дня
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="5"
+                            data-points="3"
+                          >
+                            4-7 дней
+                          </button>
+                        </div>
+                        <div class="question-item__selects show-on-mobile">
+                          <div class="select select--closed">
+                            <div
+                              data-default="Выберите ответ"
+                              class="select__selected"
+                            >
+                              <span>Выберите ответ</span>
+                            </div>
+                            <div class="select__select">
+                              <div class="select__wrap">
+                                <button
+                                  data-text="0 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="5"
+                                  data-points="0"
+                                >
+                                  <span>0 дней</span>
+                                </button>
+                                <button
+                                  data-text="1 день"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="5"
+                                  data-points="1"
+                                >
+                                  <span>1 день</span>
+                                </button>
+                                <button
+                                  data-text="2-3 дня"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="5"
+                                  data-points="2"
+                                >
+                                  <span>2-3 дня</span>
+                                </button>
+                                <button
+                                  data-text="4-7 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="5"
+                                  data-points="3"
+                                >
+                                  <span>4-7 дней</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input type="hidden" class="question-item__input" />
+                      </div>
+                      <div class="question-item">
+                        <div class="question-item__label" data-counter="6.">
+                          Как часто по поводу изжоги и/или отрыжки пациент
+                          дополнительно принимал другие средства (антациды,
+                          альгинаты, пищевую соду), кроме рекомендованных
+                          врачом?
+                        </div>
+                        <div class="question-item__buttons hide-on-mobile">
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="6"
+                            data-points="0"
+                          >
+                            0 дней
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="6"
+                            data-points="1"
+                          >
+                            1 день
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="6"
+                            data-points="2"
+                          >
+                            2-3 дня
+                          </button>
+                          <button
+                            class="question-button btn-reset answer-js"
+                            data-question="6"
+                            data-points="3"
+                          >
+                            4-7 дней
+                          </button>
+                        </div>
+                        <div class="question-item__selects show-on-mobile">
+                          <div class="select select--closed">
+                            <div
+                              data-default="Выберите ответ"
+                              class="select__selected"
+                            >
+                              <span>Выберите ответ</span>
+                            </div>
+                            <div class="select__select">
+                              <div class="select__wrap">
+                                <button
+                                  data-text="0 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="6"
+                                  data-points="0"
+                                >
+                                  <span>0 дней</span>
+                                </button>
+                                <button
+                                  data-text="1 день"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="6"
+                                  data-points="1"
+                                >
+                                  <span>1 день</span>
+                                </button>
+                                <button
+                                  data-text="2-3 дня"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="6"
+                                  data-points="2"
+                                >
+                                  <span>2-3 дня</span>
+                                </button>
+                                <button
+                                  data-text="4-7 дней"
+                                  class="select__option btn-reset answer-js"
+                                  data-question="6"
+                                  data-points="3"
+                                >
+                                  <span>4-7 дней</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input type="hidden" class="question-item__input" />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="gastro-calculator-slide__bottom btn-wrap btn-wrap--center"
+                  >
+                    <button
+                      id="go-to-result"
+                      class="btn btn--250 btn-reset go-to-result hide"
+                    >
+                      Продолжить
+                    </button>
+                  </div>
+                </div>
+
+                <div id="first-slide-3" class="gastro-calculator-slide">
+                  <div class="calculator-slide calculator-slide--columns">
+                    <div class="calculator-slide-column">
+                      <div class="calculator-btn-wrap btn-wrap">
+                        <button
+                          class="btn-back-to btn-reset go-to-back"
+                          data-slide="#first-slide-2"
+                        >
+                          Назад
+                        </button>
+                      </div>
+                      <div class="calculator-title">
+                        предварительный диагноз
+                      </div>
+                      <div class="diagnosis-probability">
+                        <p>Вероятность диагноза ГЭРБ</p>
+                        <div
+                          id="first-slide-3-probability"
+                          class="diagnosis-probability__percent"
+                        >
+                          ХХ%
+                        </div>
+                      </div>
+                      <div class="calculator-section">
+                        <div class="calculator-title">
+                          Рекомендуемый план обследования
+                        </div>
+                        <div class="calculator-text">
+                          <p>
+                            Согласно выбранным симптомам и проведению первичного
+                            обследования рекомендованный список обследований:
+                          </p>
+                        </div>
+                        <div class="btn-wrap">
+                          <div class="btn-as-link">Базовые обследования</div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">ЭГДС</div>
+                            <div class="icon-card__btns">
+                              <a href="#">Памятка для пациента</a>
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-1.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">
+                              Манометрия высокого разрешения
+                            </div>
+                            <div class="icon-card__btns">
+                              <a href="#">Памятка для пациента</a>
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-2.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="warning-message">
+                          <p>
+                            Учитывая наличие у пациента <b>дисфагии</b>,
+                            проведение манометрии высокого разрешения или
+                            рентгенографии пищевода и желудка с барием является
+                            обязательным
+                          </p>
+                        </div>
+                      </div>
+                      <div class="calculator-section">
+                        <div class="btn-wrap">
+                          <div class="btn-as-link">
+                            Факультативные обследования
+                          </div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">
+                              Суточная pH-импедансометрия
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-3.png" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        id="first-slide-3-additional"
+                        class="calculator-section"
+                      >
+                        <div class="btn-wrap">
+                          <div class="btn-as-link">Дополнительно</div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">
+                              Назначить повторный приём
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-4.png" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="calculator-slide-column calculator-slide-column--gaps"
+                    >
+                      <div class="calculator-btn-wrap btn-wrap hide-on-mobile">
+                        <a href="#" class="btn-back-to dummy">dummy</a>
+                      </div>
+                      <div class="calculator-title">Эмпирическая терапия</div>
+                      <div class="calculator-text">
+                        <p>
+                          ИПП на выбор до получения результатов диагностических
+                          исследований с последующей коррекцией терапии, но на
+                          срок не более 4 недель:
+                        </p>
+                      </div>
+                      <div class="therapy-columns">
+                        <div class="therapy-item">
+                          <p>Рабепразол</p>
+                          <small>20 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Лансопразол</p>
+                          <small>60 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Омепразол</p>
+                          <small>20 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Пантопразол</p>
+                          <small>40 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Эзомепразол</p>
+                          <small>40 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Декслансопразол</p>
+                          <small>60 мг 1 раз в день</small>
+                        </div>
+                      </div>
+                      <div class="calculator-text">
+                        <p>
+                          Учитывая наличие у пациента ночных эпизодов ГЭРБ,
+                          которые существенно ухудшают качество жизни,
+                          <span>рабепразол</span> является оптимальным выбором,
+                          т.к. он:
+                        </p>
+                      </div>
+                      <div class="calculator-text">
+                        <ul>
+                          <li>
+                            Максимальный в классе ИПП потенциал кислотосупрессии
+                          </li>
+                          <li>Быстрее других ИПП купирует симтомы ГЭРБ</li>
+                          <li>Действует до 48 часов</li>
+                        </ul>
+                      </div>
+                      <div class="warning-message">
+                        <p>
+                          При необходимости проведения теста на H. pylori
+                          следует воздержаться от назначения/приема ИПП (в том
+                          числе комбинированнных препаратов) за 2 недели до
+                          теста
+                        </p>
+                      </div>
+                      <div class="calculator-bottom btn-wrap btn-wrap--end">
+                        <button
+                          class="btn btn--250 btn--border reload-page btn-reset"
+                        >
+                          Закончить прием
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="first-slide-4" class="gastro-calculator-slide">
+                  <div class="calculator-slide calculator-slide--columns">
+                    <div class="calculator-slide-column">
+                      <div class="calculator-btn-wrap btn-wrap">
+                        <button
+                          class="btn-back-to btn-reset go-to-back"
+                          data-slide="#first-slide-2"
+                        >
+                          Назад
+                        </button>
+                      </div>
+                      <div class="calculator-title">
+                        предварительный диагноз
+                      </div>
+                      <div class="diagnosis-probability">
+                        <p>Вероятность диагноза ГЭРБ</p>
+                        <div
+                          id="first-slide-4-probability"
+                          class="diagnosis-probability__percent"
+                        >
+                          ХХ%
+                        </div>
+                      </div>
+                      <div class="calculator-section">
+                        <div class="calculator-title">
+                          Рекомендуемый план обследования
+                        </div>
+                        <div class="calculator-text">
+                          <p>
+                            Согласно выбранным симптомам и проведению первичного
+                            обследования рекомендованный список обследований:
+                          </p>
+                        </div>
+                        <div class="btn-wrap">
+                          <div class="btn-as-link">Базовые обследования</div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">ЭГДС</div>
+                            <div class="icon-card__btns">
+                              <a href="#">Памятка для пациента</a>
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-1.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">
+                              Манометрия высокого разрешения
+                            </div>
+                            <div class="icon-card__btns">
+                              <a href="#">Памятка для пациента</a>
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-2.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="warning-message">
+                          <p>
+                            Учитывая наличие у пациента <b>дисфагии</b>,
+                            проведение манометрии высокого разрешения или
+                            рентгенографии пищевода и желудка с барием является
+                            обязательным
+                          </p>
+                        </div>
+                      </div>
+                      <div class="calculator-section">
+                        <div class="btn-wrap">
+                          <div class="btn-as-link">
+                            Факультативные обследования
+                          </div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">
+                              Суточная pH-импедансометрия
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-3.png" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        id="first-slide-4-additional"
+                        class="calculator-section"
+                      >
+                        <div class="btn-wrap">
+                          <div class="btn-as-link">Дополнительно</div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">
+                              Назначить повторный приём
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-4.png" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="calculator-slide-column calculator-slide-column--gaps"
+                    >
+                      <div class="calculator-btn-wrap btn-wrap hide-on-mobile">
+                        <a href="#" class="btn-back-to dummy">dummy</a>
+                      </div>
+                      <div class="calculator-title">Эмпирическая терапия</div>
+                      <div class="calculator-text">
+                        <p>
+                          ИПП на выбор до получения результатов диагностических
+                          исследований с последующей коррекцией терапии, но на
+                          срок не более 4 недель:
+                        </p>
+                      </div>
+                      <div class="therapy-columns">
+                        <div class="therapy-item">
+                          <p>Рабепразол</p>
+                          <small>20 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Лансопразол</p>
+                          <small>60 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Омепразол</p>
+                          <small>20 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Пантопразол</p>
+                          <small>40 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Эзомепразол</p>
+                          <small>40 мг 1 раз в день</small>
+                        </div>
+                        <div class="therapy-item">
+                          <p>Декслансопразол</p>
+                          <small>60 мг 1 раз в день</small>
+                        </div>
+                      </div>
+                      <div class="calculator-text">
+                        <p>
+                          Учитывая наличие у пациента ночных эпизодов ГЭРБ,
+                          которые существенно ухудшают качество жизни,
+                          <span>рабепразол</span> является оптимальным выбором,
+                          т.к. он:
+                        </p>
+                      </div>
+                      <div class="calculator-text">
+                        <ul>
+                          <li>
+                            Максимальный в классе ИПП потенциал кислотосупрессии
+                          </li>
+                          <li>Быстрее других ИПП купирует симтомы ГЭРБ</li>
+                          <li>Действует до 48 часов</li>
+                        </ul>
+                      </div>
+                      <div class="warning-message">
+                        <p>
+                          При необходимости проведения теста на H. pylori
+                          следует воздержаться от назначения/приема ИПП (в том
+                          числе комбинированнных препаратов) за 2 недели до
+                          теста
+                        </p>
+                      </div>
+                      <div class="calculator-bottom btn-wrap btn-wrap--end">
+                        <button
+                          class="btn btn--250 btn--border reload-page btn-reset"
+                        >
+                          Закончить прием
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="more-than-8" class="gastro-calculator-slide">
+                  <div class="calculator-slide calculator-slide--columns">
+                    <div class="calculator-slide-column">
+                      <div class="calculator-btn-wrap btn-wrap">
+                        <button
+                          class="btn-back-to btn-reset go-to-back"
+                          data-slide="#first-slide-2"
+                        >
+                          Назад
+                        </button>
+                      </div>
+                      <div class="calculator-title">
+                        предварительный диагноз
+                      </div>
+                      <div class="diagnosis-probability">
+                        <p>Вероятность диагноза ГЭРБ</p>
+                        <div
+                          id="more-than-8-probability"
+                          class="diagnosis-probability__percent"
+                        >
+                          ХХ%
+                        </div>
+                      </div>
+                      <div class="calculator-section">
+                        <div class="calculator-title">
+                          Рекомендуемый план обследования
+                        </div>
+                        <div class="calculator-text">
+                          <p>
+                            Согласно выбранным симптомам и проведению первичного
+                            обследования рекомендованный список обследований:
+                          </p>
+                        </div>
+                        <div class="btn-wrap">
+                          <div class="btn-as-link">Базовые обследования</div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">ЭГДС</div>
+                            <div class="icon-card__btns">
+                              <a href="#">Памятка для пациента</a>
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-1.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">
+                              Суточная pH-импедансометрия
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-3.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="warning-message">
+                          <p>
+                            Учитывая наличие у пациента
+                            <b>внепищеводных проявлений ГЭРБ</b>, проведение
+                            pH-импедансометрии является обязательным
+                          </p>
+                        </div>
+                      </div>
+                      <div class="calculator-section">
+                        <div class="btn-wrap">
+                          <div class="btn-as-link">
+                            Факультативные обследования
+                          </div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">
+                              Манометрия высокого разрешения
+                            </div>
+                            <div class="icon-card__btns">
+                              <a href="#">Памятка для пациента</a>
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-2.png" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        id="more-than-8-additional"
+                        class="calculator-section"
+                      >
+                        <div class="btn-wrap">
+                          <div class="btn-as-link">Дополнительно</div>
+                        </div>
+                        <div class="icon-card">
+                          <div class="icon-card__content">
+                            <div class="icon-card__title">
+                              Назначить повторный приём
+                            </div>
+                          </div>
+                          <div class="icon-card__icon">
+                            <img src="img/icon-card-4.png" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="calculator-slide-column calculator-slide-column--gaps"
+                    >
+                      <div class="calculator-btn-wrap btn-wrap hide-on-mobile">
+                        <a href="#" class="btn-back-to dummy">dummy</a>
+                      </div>
+                      <div class="calculator-title">Эмпирическая терапия</div>
+                      <div class="calculator-text">
+                        <p>
+                          Рекомендуется рассмотреть возможность назначения
+                          пациенту эмпирической терапии в зависимости от степени
+                          выраженности симптомов ГЭРБ
+                        </p>
+                      </div>
+                      <div class="warning-message">
+                        <p>
+                          При проведении pH-импедансометрии рекомендуется
+                          приостановить прием ИПП за 3-5 дней до проведения
+                          процедуры
+                        </p>
+                      </div>
+                      <div class="calculator-bottom btn-wrap btn-wrap--end">
+                        <button
+                          class="btn btn--250 btn--border reload-page btn-reset"
+                        >
+                          Закончить прием
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="less-than-3" class="gastro-calculator-slide">
+                  <div class="calculator-slide">
+                    <div class="calculator-btn-wrap btn-wrap">
+                      <button
+                        class="btn-back-to btn-reset go-to-back"
+                        data-slide="#first-slide-2"
+                      >
+                        Назад
+                      </button>
+                    </div>
+                    <div class="calculator-title">Результаты диагностики</div>
+                    <div id="less-than-3-results" class="results-wrap">
+                      <div class="result-item">
+                        <span>Диагноз ГЭРБ маловероятен.</span>
+                        <br />Рекомендовано продолжить диагностический поиск в
+                        других нозологиях
+                      </div>
+                    </div>
+                    <div class="calculator-bottom btn-wrap btn-wrap--end">
+                      <button
+                        class="btn btn--250 btn--border reload-page btn-reset"
+                      >
+                        Закончить прием
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div id="extraesophageal" class="gastro-calculator-slide">
+                  <div class="calculator-slide">
+                    <div class="calculator-btn-wrap btn-wrap">
+                      <button
+                        class="btn-back-to btn-reset go-to-back"
+                        data-slide="#first-slide-1"
+                      >
+                        Назад
+                      </button>
+                    </div>
+                    <div class="calculator-title">Результаты диагностики</div>
+                    <div
+                      id="extraesophageal-results"
+                      class="results-wrap"
+                    ></div>
+                    <div class="calculator-bottom btn-wrap btn-wrap--end">
+                      <button
+                        class="btn btn--250 btn--border reload-page btn-reset"
+                      >
+                        Закончить прием
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gastro-calculator-btn-wrap">
+              <a href="#" class="gastro-calculator-btn">
+                <span>Ключевые источники информации</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  fill="none"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.89164 2.73051C5.19205 2.42487 5.67909 2.42487 5.9795 2.73051L11.1077 7.94791C11.252 8.09467 11.333 8.29373 11.333 8.5013C11.333 8.70885 11.252 8.90791 11.1077 9.05469L5.9795 14.2721C5.67909 14.5777 5.19205 14.5777 4.89164 14.2721C4.59124 13.9664 4.59124 13.4709 4.89164 13.1653L9.47593 8.5013L4.89164 3.83729C4.59124 3.53166 4.59124 3.03614 4.89164 2.73051Z"
+                    fill="#009CDE"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="repeated">
       <section class="repeated__section">
         <div class="repeated__container">
           <div class="repeated__card">
@@ -32,11 +1402,7 @@
                   <span style="width: 30%" class="repeated-bar__span"></span>
                 </div>
               </div>
-              <button
-                class="repeated-header__back-btn btn-reset repeated-header__back-btn_hidden"
-              >
-                Назад
-              </button>
+              <button class="repeated-header__back-btn btn-reset">Назад</button>
             </div>
 
             <div class="repeated-content">
@@ -154,7 +1520,7 @@
                   </h2>
                   <h3 class="repeated-content__subtitle title-reset">
                     Процент времени, в течение которого
-                    pH&nbsp;был&nbsp;<&nbsp;4
+                    pH&nbsp;был&nbsp;&lt;&nbsp;4
                   </h3>
                 </div>
                 <div class="repeated-content__main">
@@ -208,7 +1574,7 @@
                     pH-метрия и/или суточная pH-импедансометрия
                   </h2>
                   <h3 class="repeated-content__subtitle title-reset">
-                    Индекс симптома (ИС) > 50% ?
+                    Индекс симптома (ИС) &gt; 50% ?
                   </h3>
                 </div>
                 <div class="repeated-content__main">
@@ -405,7 +1771,7 @@
                       <label
                         for="repeated-buttons-slide-6-1"
                         class="repeated-buttons__label"
-                        >< 80</label
+                        >&lt; 80</label
                       >
                     </li>
                     <li class="repeated-buttons__item">
@@ -418,7 +1784,7 @@
                       <label
                         for="repeated-buttons-slide-6-2"
                         class="repeated-buttons__label"
-                        >> 80</label
+                        >&gt; 80</label
                       >
                     </li>
                   </ul>
@@ -446,7 +1812,7 @@
                       <label
                         for="repeated-buttons-slide-7-1"
                         class="repeated-buttons__label"
-                        >>15 мм рт.ст.</label
+                        >&gt;15 мм рт.ст.</label
                       >
                     </li>
                     <li class="repeated-buttons__item">
@@ -460,7 +1826,7 @@
                         for="repeated-buttons-slide-7-2"
                         class="repeated-buttons__label"
                       >
-                        < 15 мм рт.ст.</label
+                        &lt; 15 мм рт.ст.</label
                       >
                     </li>
                   </ul>
@@ -535,7 +1901,7 @@
                         for="repeated-buttons-slide-9-1"
                         class="repeated-buttons__label"
                         >Отсутствие сокращений пищевода в 100% глотков
-                        (перистальтика отсутствует) (ИСДС < 100 мм рт.
+                        (перистальтика отсутствует) (ИСДС &lt; 100 мм рт.
                         ст.)</label
                       >
                     </li>
@@ -552,7 +1918,7 @@
                         for="repeated-buttons-slide-9-2"
                         class="repeated-buttons__label"
                         >Время латентного периода дистального сегмента пищевода
-                        (DL) < 4,5 сек, может сопровождаться незавершенным
+                        (DL) &lt; 4,5 сек, может сопровождаться незавершенным
                         транзитом болюса</label
                       >
                     </li>
@@ -569,7 +1935,7 @@
                         for="repeated-buttons-slide-9-3"
                         class="repeated-buttons__label"
                         >Интегральная сократимость дистального сегмента пищевода
-                        (DCI) > 8000 мм рт. ст. х с х см в 20% и более
+                        (DCI) &gt; 8000 мм рт. ст. х с х см в 20% и более
                         глотков</label
                       >
                     </li>
@@ -586,7 +1952,7 @@
                         for="repeated-buttons-slide-9-4"
                         class="repeated-buttons__label"
                         >Неэффективные сокращения пищевода в ≥ 70% глотков с
-                        ИСДС < 450 мм рт. ст. х с х см или 50% глотков
+                        ИСДС &lt; 450 мм рт. ст. х с х см или 50% глотков
                         отсутствуют</label
                       >
                     </li>
@@ -603,8 +1969,8 @@
                         for="repeated-buttons-slide-9-5"
                         class="repeated-buttons__label"
                         >Увеличение длины разрыва сокращения стенки пищевода
-                        (фрагментированное сокращение) > 5 см в ≥ 50% глотков с
-                        ИСДС > 450 мм рт. ст. х с х см</label
+                        (фрагментированное сокращение) &gt; 5 см в ≥ 50% глотков
+                        с ИСДС &gt; 450 мм рт. ст. х с х см</label
                       >
                     </li>
                     <li
@@ -918,7 +2284,7 @@
                         </div>
                         <img
                           src="./img/icon-card-14.png"
-                          class="repeated-recommendations__icon"
+                          class="repeated-recommendations__icon"  alt=""
                         />
                       </div>
                     </div>
@@ -932,7 +2298,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon"  alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -945,7 +2311,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -973,7 +2339,7 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
                   </div>
@@ -1210,7 +2576,7 @@
                         </div>
                         <img
                           src="./img/icon-card-14.png"
-                          class="repeated-recommendations__icon"
+                          class="repeated-recommendations__icon" alt=""
                         />
                       </div>
                     </div>
@@ -1224,7 +2590,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -1237,7 +2603,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -1265,7 +2631,7 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
                   </div>
@@ -1510,7 +2876,7 @@
                         </div>
                         <img
                           src="./img/icon-card-14.png"
-                          class="repeated-recommendations__icon"
+                          class="repeated-recommendations__icon" alt=""
                         />
                       </div>
                     </div>
@@ -1524,7 +2890,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -1537,7 +2903,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -1566,7 +2932,7 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
                   </div>
@@ -1810,7 +3176,7 @@
                         </div>
                         <img
                           src="./img/icon-card-14.png"
-                          class="repeated-recommendations__icon"
+                          class="repeated-recommendations__icon" alt=""
                         />
                       </div>
                     </div>
@@ -1824,7 +3190,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -1837,7 +3203,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -1866,7 +3232,7 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
                   </div>
@@ -2138,7 +3504,7 @@
                     </div>
                     <img
                       src="./img/icon-card-1.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -2192,7 +3558,7 @@
                         Медикаментозное
                       </h3>
                       <p class="repeated-recommendations__text">
-                        ИПП только у пациентов, у которых ИС >50%
+                        ИПП только у пациентов, у которых ИС &gt;50%
                       </p>
                       <a
                         href="#"
@@ -2203,7 +3569,7 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2214,7 +3580,7 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2228,7 +3594,7 @@
                     </div>
                     <img
                       src="./img/icon-card-5.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -2300,7 +3666,7 @@
                     </div>
                     <img
                       src="./img/icon-card-2.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -2348,7 +3714,7 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2366,7 +3732,7 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2377,7 +3743,7 @@
                     </div>
                     <img
                       src="./img/icon-card-8.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2396,7 +3762,7 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -2442,7 +3808,7 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2453,7 +3819,7 @@
                     </div>
                     <img
                       src="./img/icon-card-8.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2472,7 +3838,7 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -2520,7 +3886,7 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2537,7 +3903,7 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2551,7 +3917,7 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2570,7 +3936,7 @@
                     </div>
                     <img
                       src="./img/icon-card-5.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -2621,7 +3987,7 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2700,7 +4066,7 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -2714,7 +4080,7 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -2743,7 +4109,7 @@
                   <span class="repeated-diagnosis__text"
                     >Для постановки диагноза необходимо проведение ЭГДС и
                     комплексное рассмотрение картины на ЭГДС, количество
-                    эпизодов рефлюкса и % времени pH < 4</span
+                    эпизодов рефлюкса и % времени pH &lt; 4</span
                   >
                 </div>
                 <a
@@ -2778,7 +4144,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -2806,7 +4172,7 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
                     <div class="repeated-recommendations__item">
@@ -2824,7 +4190,7 @@
                       </div>
                       <img
                         src="./img/icon-card-1.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
                   </div>
@@ -3013,7 +4379,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -3041,7 +4407,7 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
                   </div>
@@ -3243,7 +4609,7 @@
                       </div>
                       <img
                         src="./img/icon-card-3.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
                   </div>
@@ -3257,7 +4623,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -3270,7 +4636,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -3498,7 +4864,7 @@
                     </div>
                     <img
                       src="./img/icon-card-8.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
 
@@ -3518,7 +4884,7 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
 
@@ -3538,7 +4904,7 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -3579,7 +4945,7 @@
                     </div>
                     <img
                       src="./img/icon-card-5.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3605,7 +4971,7 @@
                     </div>
                     <img
                       src="./img/icon-card-11.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -3654,7 +5020,7 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
 
@@ -3672,7 +5038,7 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
 
@@ -3687,7 +5053,7 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -3737,7 +5103,7 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
 
@@ -3755,7 +5121,7 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
 
@@ -3770,7 +5136,7 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -3813,7 +5179,7 @@
                     </div>
                     <img
                       src="./img/icon-card-5.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
 
@@ -3825,7 +5191,7 @@
                     </div>
                     <img
                       src="./img/icon-card-1.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
 
@@ -3838,7 +5204,7 @@
                     </div>
                     <img
                       src="./img/icon-card-12.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
 
@@ -3865,7 +5231,7 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon"
+                      class="repeated-recommendations__icon" alt=""
                     />
                   </div>
                 </div>
@@ -3898,7 +5264,7 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"
+                      class="repeated-warning__icon" alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -3934,7 +5300,7 @@
                       </div>
                       <img
                         src="./img/icon-card-7.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
 
@@ -3952,7 +5318,7 @@
                       </div>
                       <img
                         src="./img/icon-card-6.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
 
@@ -3967,7 +5333,7 @@
                       </div>
                       <img
                         src="./img/icon-card-13.png"
-                        class="repeated-recommendations__icon"
+                        class="repeated-recommendations__icon" alt=""
                       />
                     </div>
                   </div>
@@ -4008,6 +5374,1484 @@
           </div>
         </div>
       </section>
-    </main>
+    </div>
+
+    <div class="controle-test">
+      <section class="controle-test__section">
+        <div class="controle-test__container">
+          <div class="controle-test__card">
+            <div class="controle-test-header">
+              <div class="controle-test-header__top">
+                <div
+                  id="controle-test-header-label"
+                  class="controle-test-header__label"
+                >
+                  Шаг 1: Уточняющие вопросы
+                </div>
+                <div
+                  id="controle-test-header-percent"
+                  class="controle-test-header__percent"
+                >
+                  30%
+                </div>
+                <div
+                  id="controle-test-header-progress-bar"
+                  class="controle-test-header__bar controle-test-bar"
+                >
+                  <span
+                    style="width: 30%"
+                    class="controle-test-bar__span"
+                  ></span>
+                </div>
+              </div>
+              <button class="controle-test-header__back-btn btn-reset">
+                Назад
+              </button>
+            </div>
+
+            <div class="controle-test-content">
+              <div
+                id="controle-slide-1"
+                class="controle-test-content__slide controle-test-content__slide--active"
+              >
+                <div class="controle-test-content__header">
+                  <h2 class="controle-test-content__title title-reset">
+                    контроль терапии
+                  </h2>
+                  <h3 class="controle-test-content__subtitle title-reset">
+                    Есть ли у пациента результаты контрольного исследования
+                    ЭГДС?
+                  </h3>
+                </div>
+                <div class="controle-test-content__main">
+                  <ul class="controle-test-buttons list-reset">
+                    <li class="controle-test-buttons__item">
+                      <input
+                        type="radio"
+                        id="controle-test-buttons-slide-1-1"
+                        name="controle-test-buttons-slide-1"
+                        class="controle-test-buttons__input"
+                      />
+                      <label
+                        for="controle-test-buttons-slide-1-1"
+                        class="controle-test-buttons__label"
+                        >Да</label
+                      >
+                    </li>
+                    <li class="controle-test-buttons__item">
+                      <input
+                        type="radio"
+                        id="controle-test-buttons-slide-1-2"
+                        name="controle-test-buttons-slide-1"
+                        class="controle-test-buttons__input"
+                      />
+                      <label
+                        for="controle-test-buttons-slide-1-2"
+                        class="controle-test-buttons__label"
+                        >Нет</label
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div id="controle-slide-2" class="controle-test-content__slide">
+                <div class="controle-test-content__header">
+                  <h2 class="controle-test-content__title title-reset">
+                    контроль терапии
+                  </h2>
+                  <h3 class="controle-test-content__subtitle title-reset">
+                    Выраженное улучшение состояния на повторной ЭГДС
+                  </h3>
+                </div>
+                <div class="controle-test-content__main">
+                  <ul class="controle-test-buttons list-reset">
+                    <li class="controle-test-buttons__item">
+                      <input
+                        type="radio"
+                        id="controle-test-buttons-slide-2-1"
+                        name="controle-test-buttons-slide-2"
+                        class="controle-test-buttons__input"
+                      />
+                      <label
+                        for="controle-test-buttons-slide-2-1"
+                        class="controle-test-buttons__label"
+                        >Да</label
+                      >
+                    </li>
+                    <li class="controle-test-buttons__item">
+                      <input
+                        type="radio"
+                        id="controle-test-buttons-slide-2-2"
+                        name="controle-test-buttons-slide-2"
+                        class="controle-test-buttons__input"
+                      />
+                      <label
+                        for="controle-test-buttons-slide-2-2"
+                        class="controle-test-buttons__label"
+                        >Нет</label
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div id="controle-slide-3" class="controle-test-content__slide">
+                <div class="controle-test-content__header">
+                  <h2 class="controle-test-content__title title-reset">
+                    контроль терапии
+                  </h2>
+                  <h3 class="controle-test-content__subtitle title-reset">
+                    Длительность ранее проведенной терапии составляла менее 8-ми
+                    недель?
+                  </h3>
+                </div>
+                <div class="controle-test-content__main">
+                  <ul class="controle-test-buttons list-reset">
+                    <li class="controle-test-buttons__item">
+                      <input
+                        type="radio"
+                        id="controle-test-buttons-slide-3-1"
+                        name="controle-test-buttons-slide-3"
+                        class="controle-test-buttons__input"
+                      />
+                      <label
+                        for="controle-test-buttons-slide-3-1"
+                        class="controle-test-buttons__label"
+                        >Да</label
+                      >
+                    </li>
+                    <li class="controle-test-buttons__item">
+                      <input
+                        type="radio"
+                        id="controle-test-buttons-slide-3-2"
+                        name="controle-test-buttons-slide-3"
+                        class="controle-test-buttons__input"
+                      />
+                      <label
+                        for="controle-test-buttons-slide-3-2"
+                        class="controle-test-buttons__label"
+                        >Нет</label
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div id="slide-gerbq-test" class="controle-test-content__slide">
+                <div class="controle-test-content__header">
+                  <h2 class="controle-test-content__title title-reset">
+                    ТЕСТ gerd Q
+                  </h2>
+                </div>
+                <p
+                  class="controle-test-content__text controle-test-content__text_test"
+                >
+                  За последнюю неделю:
+                </p>
+
+                <div
+                  class="calculator-slide calculator-slide--columns calculator-slide--test"
+                >
+                  <div class="calculator-slide-column">
+                    <div class="question-item">
+                      <div class="question-item__label" data-counter="1.">
+                        Как часто пациент ощущал изжогу (чувство жжения за
+                        грудиной)?
+                      </div>
+
+                      <div class="question-item__buttons hide-on-mobile">
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="1"
+                          data-points="0"
+                        >
+                          0 дней
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="1"
+                          data-points="1"
+                        >
+                          1 день
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="1"
+                          data-points="2"
+                        >
+                          2-3 дня
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="1"
+                          data-points="3"
+                        >
+                          4-7 дней
+                        </button>
+                      </div>
+
+                      <div class="question-item__selects show-on-mobile">
+                        <div class="select select--closed">
+                          <div
+                            data-default="Выберите ответ"
+                            class="select__selected"
+                          >
+                            <span>Выберите ответ</span>
+                          </div>
+                          <div class="select__select">
+                            <div class="select__wrap">
+                              <button
+                                data-text="0 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="1"
+                                data-points="0"
+                              >
+                                <span>0 дней</span>
+                              </button>
+                              <button
+                                data-text="1 день"
+                                class="select__option btn-reset answer-js"
+                                data-question="1"
+                                data-points="1"
+                              >
+                                <span>1 день</span>
+                              </button>
+                              <button
+                                data-text="2-3 дня"
+                                class="select__option btn-reset answer-js"
+                                data-question="1"
+                                data-points="2"
+                              >
+                                <span>2-3 дня</span>
+                              </button>
+                              <button
+                                data-text="4-7 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="1"
+                                data-points="3"
+                              >
+                                <span>4-7 дней</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <input type="hidden" class="question-item__input" />
+                    </div>
+
+                    <div class="question-item">
+                      <div class="question-item__label" data-counter="2.">
+                        Как часто пациент отмечал, что содержимое желудка
+                        (жидкость либо пища) снова попадает в глотку или полость
+                        рта (отрыжка)?
+                      </div>
+                      <div class="question-item__buttons hide-on-mobile">
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="2"
+                          data-points="0"
+                        >
+                          0 дней
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="2"
+                          data-points="1"
+                        >
+                          1 день
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="2"
+                          data-points="2"
+                        >
+                          2-3 дня
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="2"
+                          data-points="3"
+                        >
+                          4-7 дней
+                        </button>
+                      </div>
+                      <div class="question-item__selects show-on-mobile">
+                        <div class="select select--closed">
+                          <div
+                            data-default="Выберите ответ"
+                            class="select__selected"
+                          >
+                            <span>Выберите ответ</span>
+                          </div>
+                          <div class="select__select">
+                            <div class="select__wrap">
+                              <button
+                                data-text="0 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="2"
+                                data-points="0"
+                              >
+                                <span>0 дней</span>
+                              </button>
+                              <button
+                                data-text="1 день"
+                                class="select__option btn-reset answer-js"
+                                data-question="2"
+                                data-points="1"
+                              >
+                                <span>1 день</span>
+                              </button>
+                              <button
+                                data-text="2-3 дня"
+                                class="select__option btn-reset answer-js"
+                                data-question="2"
+                                data-points="2"
+                              >
+                                <span>2-3 дня</span>
+                              </button>
+                              <button
+                                data-text="4-7 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="2"
+                                data-points="3"
+                              >
+                                <span>4-7 дней</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <input type="hidden" class="question-item__input" />
+                    </div>
+
+                    <div class="question-item">
+                      <div class="question-item__label" data-counter="3.">
+                        Как часто пациент ощущал боль в центре верхней части
+                        живота?
+                      </div>
+                      <div class="question-item__buttons hide-on-mobile">
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="3"
+                          data-points="3"
+                        >
+                          0 дней
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="3"
+                          data-points="2"
+                        >
+                          1 день
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="3"
+                          data-points="1"
+                        >
+                          2-3 дня
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="3"
+                          data-points="0"
+                        >
+                          4-7 дней
+                        </button>
+                      </div>
+                      <div class="question-item__selects show-on-mobile">
+                        <div class="select select--closed">
+                          <div
+                            data-default="Выберите ответ"
+                            class="select__selected"
+                          >
+                            <span>Выберите ответ</span>
+                          </div>
+                          <div class="select__select">
+                            <div class="select__wrap">
+                              <button
+                                data-text="0 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="3"
+                                data-points="3"
+                              >
+                                <span>0 дней</span>
+                              </button>
+                              <button
+                                data-text="1 день"
+                                class="select__option btn-reset answer-js"
+                                data-question="3"
+                                data-points="2"
+                              >
+                                <span>1 день</span>
+                              </button>
+                              <button
+                                data-text="2-3 дня"
+                                class="select__option btn-reset answer-js"
+                                data-question="3"
+                                data-points="1"
+                              >
+                                <span>2-3 дня</span>
+                              </button>
+                              <button
+                                data-text="4-7 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="3"
+                                data-points="0"
+                              >
+                                <span>4-7 дней</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <input type="hidden" class="question-item__input" />
+                    </div>
+                  </div>
+
+                  <div class="calculator-slide-column">
+                    <div class="question-item">
+                      <div class="question-item__label" data-counter="4.">
+                        Как часто пациент ощущал тошноту?
+                      </div>
+                      <div class="question-item__buttons hide-on-mobile">
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="4"
+                          data-points="3"
+                        >
+                          0 дней
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="4"
+                          data-points="2"
+                        >
+                          1 день
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="4"
+                          data-points="1"
+                        >
+                          2-3 дня
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="4"
+                          data-points="0"
+                        >
+                          4-7 дней
+                        </button>
+                      </div>
+                      <div class="question-item__selects show-on-mobile">
+                        <div class="select select--closed">
+                          <div
+                            data-default="Выберите ответ"
+                            class="select__selected"
+                          >
+                            <span>Выберите ответ</span>
+                          </div>
+                          <div class="select__select">
+                            <div class="select__wrap">
+                              <button
+                                data-text="0 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="4"
+                                data-points="3"
+                              >
+                                <span>0 дней</span>
+                              </button>
+                              <button
+                                data-text="1 день"
+                                class="select__option btn-reset answer-js"
+                                data-question="4"
+                                data-points="2"
+                              >
+                                <span>1 день</span>
+                              </button>
+                              <button
+                                data-text="2-3 дня"
+                                class="select__option btn-reset answer-js"
+                                data-question="4"
+                                data-points="1"
+                              >
+                                <span>2-3 дня</span>
+                              </button>
+                              <button
+                                data-text="4-7 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="4"
+                                data-points="0"
+                              >
+                                <span>4-7 дней</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <input type="hidden" class="question-item__input" />
+                    </div>
+
+                    <div class="question-item">
+                      <div class="question-item__label" data-counter="5.">
+                        Как часто изжога и/или отрыжка мешали пациенту хорошо
+                        выспаться ночью?
+                      </div>
+                      <div class="question-item__buttons hide-on-mobile">
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="5"
+                          data-points="0"
+                        >
+                          0 дней
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="5"
+                          data-points="1"
+                        >
+                          1 день
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="5"
+                          data-points="2"
+                        >
+                          2-3 дня
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="5"
+                          data-points="3"
+                        >
+                          4-7 дней
+                        </button>
+                      </div>
+                      <div class="question-item__selects show-on-mobile">
+                        <div class="select select--closed">
+                          <div
+                            data-default="Выберите ответ"
+                            class="select__selected"
+                          >
+                            <span>Выберите ответ</span>
+                          </div>
+                          <div class="select__select">
+                            <div class="select__wrap">
+                              <button
+                                data-text="0 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="5"
+                                data-points="0"
+                              >
+                                <span>0 дней</span>
+                              </button>
+                              <button
+                                data-text="1 день"
+                                class="select__option btn-reset answer-js"
+                                data-question="5"
+                                data-points="1"
+                              >
+                                <span>1 день</span>
+                              </button>
+                              <button
+                                data-text="2-3 дня"
+                                class="select__option btn-reset answer-js"
+                                data-question="5"
+                                data-points="2"
+                              >
+                                <span>2-3 дня</span>
+                              </button>
+                              <button
+                                data-text="4-7 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="5"
+                                data-points="3"
+                              >
+                                <span>4-7 дней</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <input type="hidden" class="question-item__input" />
+                    </div>
+
+                    <div class="question-item">
+                      <div class="question-item__label" data-counter="6.">
+                        Как часто по поводу изжоги и/или отрыжки пациент
+                        дополнительно принимал другие средства (антациды,
+                        альгинаты, пищевую соду), кроме рекомендованных врачом?
+                      </div>
+                      <div class="question-item__buttons hide-on-mobile">
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="6"
+                          data-points="0"
+                        >
+                          0 дней
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="6"
+                          data-points="1"
+                        >
+                          1 день
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="6"
+                          data-points="2"
+                        >
+                          2-3 дня
+                        </button>
+                        <button
+                          class="question-button btn-reset answer-js"
+                          data-question="6"
+                          data-points="3"
+                        >
+                          4-7 дней
+                        </button>
+                      </div>
+                      <div class="question-item__selects show-on-mobile">
+                        <div class="select select--closed">
+                          <div
+                            data-default="Выберите ответ"
+                            class="select__selected"
+                          >
+                            <span>Выберите ответ</span>
+                          </div>
+                          <div class="select__select">
+                            <div class="select__wrap">
+                              <button
+                                data-text="0 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="6"
+                                data-points="0"
+                              >
+                                <span>0 дней</span>
+                              </button>
+                              <button
+                                data-text="1 день"
+                                class="select__option btn-reset answer-js"
+                                data-question="6"
+                                data-points="1"
+                              >
+                                <span>1 день</span>
+                              </button>
+                              <button
+                                data-text="2-3 дня"
+                                class="select__option btn-reset answer-js"
+                                data-question="6"
+                                data-points="2"
+                              >
+                                <span>2-3 дня</span>
+                              </button>
+                              <button
+                                data-text="4-7 дней"
+                                class="select__option btn-reset answer-js"
+                                data-question="6"
+                                data-points="3"
+                              >
+                                <span>4-7 дней</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <input type="hidden" class="question-item__input" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                id="result-continue-course"
+                class="controle-test-content__slide"
+              >
+                <div class="controle-test-content__header">
+                  <h2 class="controle-test-content__title title-reset">
+                    Результаты лечения
+                  </h2>
+                </div>
+                <div class="controle-test-content__main">
+                  <div
+                    class="controle-test-diagnosis controle-test-diagnosis_alone"
+                  >
+                    <span class="controle-test-diagnosis__text"
+                      >Рекомендуется продолжение курса ранее проводимой терапии
+                      до общего срока в 8 недель</span
+                    >
+                  </div>
+                </div>
+                <a
+                  href="#"
+                  class="controle-test-content__link controle-test-content__link_end controle-test-content__link_white"
+                >
+                  Закончить прием
+                </a>
+              </div>
+
+              <div
+                id="result-gerd-refractory-current"
+                class="controle-test-content__slide controle-test-content__slide--columns"
+              >
+                <div class="controle-test-content__column">
+                  <div class="controle-test-content__header">
+                    <h2 class="controle-test-content__title title-reset">
+                      Вероятный диагноз
+                    </h2>
+                  </div>
+
+                  <div
+                    class="controle-test-diagnosis controle-test-diagnosis_row"
+                  >
+                    <span class="controle-test-diagnosis__text">ГЭРБ</span>
+                    <span
+                      class="controle-test-diagnosis__text controle-test-diagnosis__text_grade"
+                      >рефрактерное течение</span
+                    >
+                  </div>
+
+                  <div class="controle-test-recommendations">
+                    <p class="controle-test-recommendations__text">
+                      Последовательность действий по преодолению рефрактерности
+                      в лечении ГЭРБ может включать в себя, но не ограничиваться
+                      следующими рекомендациями:
+                    </p>
+                    <ol class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        Обсудить с пациентом и удостовериться в том, что все
+                        ранее данные рекомендации по приему лекарственных
+                        препаратов и изменению образа жизни соблюдались и
+                        выполнялись
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Рассмотреть вопрос о повторном проведении ЭГДС для
+                        исключения осложнений ГЭРБ (пищевод Баррета, наличие
+                        стриктур пищевода) и онкологических заболеваний (АКП)
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Назначение пациенту другого ИПП или перевод его на схему
+                        приема дважды в день (утром и вечером) на срок до 2
+                        месяцев
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div
+                  class="controle-test-content__column controle-test-content__column_border-left"
+                >
+                  <div class="controle-test-content__header">
+                    <h2 class="controle-test-content__title title-reset">
+                      Терапия
+                    </h2>
+                  </div>
+
+                  <div class="controle-test-recommendations">
+                    <p class="controle-test-recommendations__text">
+                      <span class="controle-test-recommendations__span">
+                        В случае, если в медицинском учреждении имеется
+                        необходимое оборудование, рекомендуется повторное
+                        проведение pH-импедансометрии с ИПП и проверка
+                        эффективности ИПП.
+                      </span>
+                    </p>
+                    <p class="controle-test-recommendations__text">
+                      Возможные находки на pH-импедансометрии включают в себя:
+                    </p>
+                    <ol
+                      class="controle-test-recommendations__list controle-test-recommendations__list_outer"
+                    >
+                      <li class="controle-test-recommendations__elem">
+                        Отсутствие выраженных нарушений.
+                        <p class="controle-test-recommendations__text">
+                          В этом случае пациенту рекомендуется консультация
+                          психиатра и возможное назначение препаратов,
+                          купирующих болевой синдром и жжение
+                        </p>
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Наличие кислотных рефлюксов, несмотря на проводимую
+                        терапию ИПП.
+                        <p class="controle-test-recommendations__text">
+                          В этом случае рекомендуется еще раз удостовериться в
+                          правильном приеме пациентом назначенного лечения ИПП.
+                          Если все рекомендации выполняются верно, можно
+                          рассмотреть возможность:
+                        </p>
+                        <ul
+                          class="controle-test-recommendations__list controle-test-recommendations__list_inner"
+                        >
+                          <li class="controle-test-recommendations__elem">
+                            замены принимаемого препарата в рамках группы ИПП
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            добавления к проводимой ИПП-терапии приема
+                            блокаторов H2-гистаминовых рецепторов на ночь
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            хирургического лечения*
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            эндоскопического лечения (метод Стретта или
+                            трансоральная фундопликация)
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Наличие слабокислых рефлюксов.
+                        <p class="controle-test-recommendations__text">
+                          В этом случае можно рассмотреть возможность
+                          назначения:
+                        </p>
+                        <ul
+                          class="controle-test-recommendations__list controle-test-recommendations__list_inner"
+                        >
+                          <li class="controle-test-recommendations__elem">
+                            препаратов, снижающих количество преходящего
+                            расслабления НПС (итоприда гидрохлорид)
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            препаратов урсодезоксихолиевой кислоты (УДХК)
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            препаратов, купирующих болевой синдром
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            хирургического лечения*
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            эндоскопического лечения (метод Стретта или
+                            трансоральная фундопликация)
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+                    <p class="controle-test-recommendations__text">
+                      <span class="controle-test-recommendations__span">
+                        В случае, если в медицинском учреждении ОТСУТСТВУЕТ
+                        необходимое для проведения pH-импедансометрии
+                        оборудование,
+                      </span>
+                      пациенту можно рекомендовать следующие опции терапии:
+                    </p>
+                    <ul class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        Назначение итоприда гидрохлорида, если не назначался
+                        ранее
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        У пациентов, основной жалобой которых является изжога,
+                        можно рассмотреть добавление к проводимой ИПП-терапии
+                        приема блокаторов H2-гистаминовых рецепторов на ночь (с
+                        перерывами между курсами, чтобы избежать развития
+                        тахифилаксии)
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        В случае, если это не оказывает должного эффекта, можно
+                        рассмотреть назначение пациенту препаратов, купирующих
+                        болевой синдром
+                      </li>
+                    </ul>
+                    <p
+                      class="controle-test-recommendations__text controle-test-recommendations__text_explanaton"
+                    >
+                      *Хирургическое лечение не показано пациентам, у которых
+                      наблюдается абсолютное отсутствие ответа на ранее
+                      проводимую терапию ИПП
+                    </p>
+                  </div>
+
+                  <a
+                    href="#"
+                    class="controle-test-content__link controle-test-content__link_end controle-test-content__link_full-width"
+                  >
+                    Результаты дополнительных исследований
+                  </a>
+
+                  <div
+                    class="controle-test-content__divider controle-test-content__divider_mobile"
+                  ></div>
+
+                  <a
+                    href="#"
+                    class="controle-test-content__link controle-test-content__link_end controle-test-content__link_white"
+                  >
+                    Закончить прием
+                  </a>
+                </div>
+              </div>
+
+              <div
+                id="result-recommended-cancel-therapy"
+                class="controle-test-content__slide controle-test-content__slide--columns"
+              >
+                <div
+                  class="controle-test-content__column controle-test-content__column_border-right"
+                >
+                  <div class="controle-test-content__header">
+                    <h2 class="controle-test-content__title title-reset">
+                      Результаты лечения
+                    </h2>
+                  </div>
+
+                  <div
+                    class="controle-test-diagnosis controle-test-diagnosis_mb20"
+                  >
+                    <span class="controle-test-diagnosis__text"
+                      >Лечение проведено эффективно, рекомендуется отменить
+                      ранее назначенную терапию</span
+                    >
+                  </div>
+
+                  <div class="controle-test-content__hernia">
+                    <h2 class="controle-test-content__title title-reset">
+                      Дополнительные обследования
+                    </h2>
+
+                    <p class="controle-test-content__text">
+                      Для подтверждения решения об отмене терапии рекомендуется
+                      назначение пациенту контрольной ЭГДС.
+                    </p>
+
+                    <div class="controle-test-recommendations">
+                      <div class="controle-test-recommendations__item">
+                        <div class="controle-test-recommendations__info">
+                          <h3
+                            class="controle-test-recommendations__title title-reset"
+                          >
+                            Контрольная ЭГДС
+                          </h3>
+                          <a
+                            href="#"
+                            target="_blank"
+                            class="controle-test-recommendations__memo"
+                            >Памятка для пациента</a
+                          >
+                        </div>
+                        <img
+                          src="./img/icon-card-1.png"
+                          class="controle-test-recommendations__icon" alt=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="controle-test-content__divider"></div>
+
+                    <h3 class="controle-test-content__attention title-reset">
+                      Обратить внимание
+                    </h3>
+
+                    <div class="controle-test-warning">
+                      <img
+                        src="./img/warning-message.svg"
+                        class="controle-test-warning__icon" alt=""
+                      />
+                      <div class="controle-test-warning__info">
+                        <p class="controle-test-warning__text">
+                          Для устойчивой ремиссии пациенту необходимо пожизненно
+                          придерживаться советов по модификации образа жизни
+                        </p>
+                        <a
+                          href="#"
+                          target="_blank"
+                          class="controle-test-warning__link"
+                          >Памятка для пациента</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="controle-test-content__divider"></div>
+
+                    <p
+                      class="controle-test-content__text controle-test-content__text_important"
+                    >
+                      Для поддержания устойчивой ремиссии пациенту необходимо
+                      пожизненно придерживаться следующих рекомендаций.
+                    </p>
+                  </div>
+
+                  <h2 class="controle-test-content__title title-reset">
+                    Изменение образа жизни:
+                  </h2>
+
+                  <div
+                    class="controle-test-recommendations controle-test-recommendations_mb20"
+                  >
+                    <ol class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        Максимально ограничить употребление алкоголя
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Прекратить курение
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Снизить массу тела, если она избыточна
+                      </li>
+                    </ol>
+                  </div>
+
+                  <h2 class="controle-test-content__title title-reset">
+                    Изменение пищевого поведения:
+                  </h2>
+
+                  <div
+                    class="controle-test-recommendations controle-test-recommendations_mb20"
+                  >
+                    <ol class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        Следует избегать переедания
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Прекратить прием пищи за 4 часа до сна
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Соблюдать трех-, четырехразовое питание и тщательно
+                        избегать «перекусов»
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Необходимо максимально ограничить употребление очень
+                        горячей или холодной пищи и газированных напитков
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Целесообразно избегать употребления:
+                      </li>
+                    </ol>
+
+                    <ul class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        томатов в любом виде
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        кислых фруктовых соков
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        продуктов, усиливающих газообразование
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        жирной пищи
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        шоколада
+                      </li>
+                      <li class="controle-test-recommendations__elem">кофе</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="controle-test-content__column">
+                  <div class="controle-test-content__header">
+                    <h2 class="controle-test-content__title title-reset">
+                      Прочее:
+                    </h2>
+                  </div>
+
+                  <div class="controle-test-recommendations">
+                    <ol class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        Избегать повышения внутрибрюшного давления (ношение
+                        тугих поясов и корсетов, поднятие тяжестей более 8-10 кг
+                        на обе руки, работы, сопряженной с наклоном туловища
+                        вперед, физических упражнений, связанных с
+                        перенапряжением мышц пресса)
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Если изжога или регургитация беспокоят в положении лежа,
+                        рекомендуется поднятие изголовья кровати
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Предупредить пациента о том, что некоторые группы
+                        препаратов могут снижать тонус НПС и провоцировать
+                        эпизоды рефлюкса:
+                        <ul
+                          class="controle-test-recommendations__list controle-test-recommendations__list_inner"
+                        >
+                          <li class="controle-test-recommendations__elem">
+                            нитраты и нитроглицерин
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            антагонисты кальция группы нифедипина
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            теофиллин
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            прогестерон
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            антидепрессанты
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+
+                    <p class="controle-test-recommendations__text">
+                      Некоторые препараты могут провоцировать воспаление
+                      слизистой оболочки пищевода и желудка:
+                    </p>
+
+                    <ul class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        нестероидные противовоспалительные средства
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        стероидные противовоспалительные препараты при системном
+                        приеме
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        доксициклин
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        хинидин
+                      </li>
+                    </ul>
+                  </div>
+
+                  <a
+                    href="#"
+                    class="controle-test-content__link controle-test-content__link_end controle-test-content__link_full-width"
+                  >
+                    Результаты дополнительных исследований
+                  </a>
+
+                  <div
+                    class="controle-test-content__divider controle-test-content__divider_mobile"
+                  ></div>
+
+                  <a
+                    href="#"
+                    class="controle-test-content__link controle-test-content__link_end controle-test-content__link_white"
+                  >
+                    Закончить прием
+                  </a>
+                </div>
+              </div>
+
+              <div
+                id="result-recommended-correction-therapy"
+                class="controle-test-content__slide controle-test-content__slide--columns"
+              >
+                <div
+                  class="controle-test-content__column controle-test-content__column_border-right"
+                >
+                  <div class="controle-test-content__header">
+                    <h2 class="controle-test-content__title title-reset">
+                      Результаты лечения
+                    </h2>
+                  </div>
+
+                  <div
+                    class="controle-test-diagnosis controle-test-diagnosis_mb20"
+                  >
+                    <span class="controle-test-diagnosis__text"
+                      >Рекомендуется коррекция терапии</span
+                    >
+                  </div>
+
+                  <h2 class="controle-test-content__title title-reset">
+                    Фармакотерапия
+                  </h2>
+
+                  <div class="controle-test-recommendations">
+                    <div class="controle-test-recommendations__item">
+                      <div class="controle-test-recommendations__info">
+                        <h3
+                          class="controle-test-recommendations__title title-reset"
+                        >
+                          Рассмотреть возможность снижения дозы ИПП до 1/2
+                          суточной дозы или перехода на режим приема ИПП «по
+                          требованию»
+                        </h3>
+                      </div>
+                      <img
+                        src="./img/icon-card-6.png"
+                        class="controle-test-recommendations__icon" alt=""
+                      />
+                    </div>
+
+                    <div class="controle-test-recommendations__item">
+                      <div class="controle-test-recommendations__info">
+                        <h3
+                          class="controle-test-recommendations__title title-reset"
+                        >
+                          Купирование возникающих эпизодов ГЭРБ с помощью
+                          антацидов или алгинат-содержащих препаратов
+                        </h3>
+                      </div>
+                      <img
+                        src="./img/icon-card-15.png"
+                        class="controle-test-recommendations__icon" alt=""
+                      />
+                    </div>
+
+                    <div class="controle-test-recommendations__item">
+                      <div class="controle-test-recommendations__info">
+                        <h3
+                          class="controle-test-recommendations__title title-reset"
+                        >
+                          Мониторинг в течение 4-12 недель
+                        </h3>
+                      </div>
+                      <img
+                        src="./img/icon-card-10.png"
+                        class="controle-test-recommendations__icon" alt=""
+                      />
+                    </div>
+
+                    <div class="controle-test-recommendations__item">
+                      <div class="controle-test-recommendations__info">
+                        <h3
+                          class="controle-test-recommendations__title title-reset"
+                        >
+                          Придерживаться рекомендаций по изменению образа жизни
+                          и пищевого поведения
+                        </h3>
+                      </div>
+                      <img
+                        src="./img/icon-card-7.png"
+                        class="controle-test-recommendations__icon" alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="controle-test-content__hernia">
+                    <div class="controle-test-content__divider"></div>
+
+                    <h2 class="controle-test-content__title title-reset">
+                      Дополнительные обследования
+                    </h2>
+
+                    <div class="controle-test-recommendations">
+                      <div class="controle-test-recommendations__item">
+                        <div class="controle-test-recommendations__info">
+                          <h3
+                            class="controle-test-recommendations__title title-reset"
+                          >
+                            Рекомендуется назначить контрольную ЭГДС для решения
+                            об отмене терапии
+                          </h3>
+                          <a
+                            href="#"
+                            target="_blank"
+                            class="controle-test-recommendations__memo"
+                            >Памятка для пациента</a
+                          >
+                        </div>
+                        <img
+                          src="./img/icon-card-1.png"
+                          class="controle-test-recommendations__icon" alt=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="controle-test-content__divider"></div>
+                  </div>
+
+                  <h2 class="controle-test-content__title title-reset">
+                    Изменение образа жизни:
+                  </h2>
+
+                  <div
+                    class="controle-test-recommendations controle-test-recommendations_mb20"
+                  >
+                    <ol class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        Максимально ограничить употребление алкоголя
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Прекратить курение
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Снизить массу тела, если она избыточна
+                      </li>
+                    </ol>
+                  </div>
+
+                  <h2 class="controle-test-content__title title-reset">
+                    Изменение пищевого поведения:
+                  </h2>
+
+                  <div
+                    class="controle-test-recommendations controle-test-recommendations_mb20"
+                  >
+                    <ol class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        Следует избегать переедания
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Прекратить прием пищи за 4 часа до сна
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Соблюдать трех-, четырехразовое питание и тщательно
+                        избегать «перекусов»
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Необходимо максимально ограничить употребление очень
+                        горячей или холодной пищи и газированных напитков
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Целесообразно избегать употребления:
+                      </li>
+                    </ol>
+
+                    <ul class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        томатов в любом виде
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        кислых фруктовых соков
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        продуктов, усиливающих газообразование
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        жирной пищи
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        шоколада
+                      </li>
+                      <li class="controle-test-recommendations__elem">кофе</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="controle-test-content__column">
+                  <div class="controle-test-content__header">
+                    <h2 class="controle-test-content__title title-reset">
+                      Прочее:
+                    </h2>
+                  </div>
+
+                  <div class="controle-test-recommendations">
+                    <ol class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        Избегать повышения внутрибрюшного давления (ношение
+                        тугих поясов и корсетов, поднятие тяжестей более 8-10 кг
+                        на обе руки, работы, сопряженной с наклоном туловища
+                        вперед, физических упражнений, связанных с
+                        перенапряжением мышц пресса)
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Если изжога или регургитация беспокоят в положении лежа,
+                        рекомендуется поднятие изголовья кровати
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        Предупредить пациента о том, что некоторые группы
+                        препаратов могут снижать тонус НПС и провоцировать
+                        эпизоды рефлюкса:
+                        <ul
+                          class="controle-test-recommendations__list controle-test-recommendations__list_inner"
+                        >
+                          <li class="controle-test-recommendations__elem">
+                            нитраты и нитроглицерин
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            антагонисты кальция группы нифедипина
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            теофиллин
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            прогестерон
+                          </li>
+                          <li class="controle-test-recommendations__elem">
+                            антидепрессанты
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+
+                    <p class="controle-test-recommendations__text">
+                      Некоторые препараты могут провоцировать воспаление
+                      слизистой оболочки пищевода и желудка:
+                    </p>
+
+                    <ul class="controle-test-recommendations__list">
+                      <li class="controle-test-recommendations__elem">
+                        нестероидные противовоспалительные средства
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        стероидные противовоспалительные препараты при системном
+                        приеме
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        доксициклин
+                      </li>
+                      <li class="controle-test-recommendations__elem">
+                        хинидин
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="controle-test-warning">
+                    <img
+                      src="./img/warning-message.svg"
+                      class="controle-test-warning__icon" alt=""
+                    />
+                    <div class="controle-test-warning__info">
+                      <p class="controle-test-warning__text">
+                        Если эпизоды ГЭРБ повторяются
+                        <span class="controle-test-recommendations__span"
+                          >3-7 дней подряд и влияют на повседневную
+                          активность,</span
+                        >
+                        рекомендуется возврат к ранее назначенной схеме терапии
+                      </p>
+                    </div>
+                  </div>
+
+                  <a
+                    href="#"
+                    class="controle-test-content__link controle-test-content__link_end controle-test-content__link_full-width"
+                  >
+                    Результаты дополнительных исследований
+                  </a>
+
+                  <div
+                    class="controle-test-content__divider controle-test-content__divider_mobile"
+                  ></div>
+
+                  <a
+                    href="#"
+                    class="controle-test-content__link controle-test-content__link_end controle-test-content__link_white"
+                  >
+                    Закончить прием
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="controle-test-footer">
+              <button class="controle-test-footer__btn btn-reset">
+                Продолжить
+              </button>
+            </div>
+          </div>
+
+          <div class="controle-test__sources">
+            <a href="#" target="_blank" class="controle-test__link">
+              <span>Ключевые источники информации</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="17"
+                viewBox="0 0 16 17"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M4.89164 2.73051C5.19205 2.42487 5.67909 2.42487 5.9795 2.73051L11.1077 7.94791C11.252 8.09467 11.333 8.29373 11.333 8.5013C11.333 8.70885 11.252 8.90791 11.1077 9.05469L5.9795 14.2721C5.67909 14.5777 5.19205 14.5777 4.89164 14.2721C4.59124 13.9664 4.59124 13.4709 4.89164 13.1653L9.47593 8.5013L4.89164 3.83729C4.59124 3.53166 4.59124 3.03614 4.89164 2.73051Z"
+                  fill="#009CDE"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>

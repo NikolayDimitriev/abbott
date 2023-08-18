@@ -1,0 +1,33 @@
+.controle-test-footer {
+  width: 250px;
+  align-self: flex-end;
+  margin-top: 28px;
+
+  &__btn {
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: var(--primary-main);
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &_active {
+    .controle-test-footer__btn {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  @include mobile {
+    width: 100%;
+    margin-top: 24px;
+  }
+}

@@ -1,0 +1,45 @@
+.controle-test-warning {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: var(--background-warning);
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 125% */
+
+    @include mobile {
+      font-size: 16px;
+      line-height: 20px; /* 125% */
+    }
+  }
+
+  &__link {
+    width: max-content;
+    font-family: Calibri;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 125% */
+    border-bottom: 1px solid var(--primary-main);
+    color: var(--primary-main);
+
+    @include mobile {
+      font-size: 16px;
+      line-height: 20px; /* 125% */
+    }
+  }
+}
