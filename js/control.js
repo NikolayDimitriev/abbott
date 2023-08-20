@@ -245,10 +245,11 @@
       addActiveClassToSlide();
 
       if (activeSlide.id === "controle-slide-1") {
-        $(".controle-test").removeClass("active-page");
-        $(".breeading-page").addClass("active-page");
-        $(".repeated").removeClass("active-page");
-        $(".section-wrap").removeClass("active-page");
+        $("#controle-test-page").removeClass("active-page");
+        $("#start-page").addClass("active-page");
+        $("#interaction-page").removeClass("active-page");
+        $("#repeated-test-page").removeClass("active-page");
+        $("#first-test-page").removeClass("active-page");
       }
 
       updateHeaderById(activeSlide.id);

@@ -1,0 +1,243 @@
+.interaction {
+  &__header {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 125% */
+
+    @include mobile {
+      font-size: 16px;
+      line-height: 20px; /* 125% */
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0;
+    width: 100%;
+    flex-wrap: wrap;
+
+    height: 52px;
+    overflow: hidden;
+
+    @include mobile {
+      height: 72px;
+      margin: 0;
+    }
+
+    &__btn {
+      border-radius: 40px;
+      border: 1px solid var(--main-color);
+      color: var(--main-color);
+      padding: 4px 24px;
+      height: 52px;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 25px; /* 125% */
+      transition: background-color ease-in-out 0.3s, color ease-in-out 0.3s;
+
+      @include mobile {
+        font-size: 16px;
+        line-height: 20px; /* 125% */
+        height: 32px;
+        padding: 4px 16px;
+      }
+
+      &_active {
+        background-color: var(--primary-main);
+        color: #fff;
+      }
+    }
+  }
+
+  &-main {
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+
+    @include mobile {
+      gap: 24px;
+      margin-top: 24px;
+      margin-bottom: 0;
+    }
+
+    &__item {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-radius: 4px;
+      border: 1px solid var(--primary-main);
+    }
+
+    &__title {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px; /* 116.667% */
+    }
+
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+
+      @include tablet {
+        flex-direction: column;
+      }
+    }
+
+    &__left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      flex-basis: 50%;
+    }
+
+    &__descr {
+      flex-basis: 50%;
+      margin: 0;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 25px; /* 125% */
+    }
+
+    &__block {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 24px;
+
+      @include mobile {
+        flex-direction: column;
+      }
+    }
+
+    &__text {
+      margin: 0;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 125% */
+    }
+
+    &__subtitle {
+      color: #bdbdbd;
+      font-family: Calibri;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px; /* 125% */
+    }
+
+    &__tactic {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+
+      .interaction-main__text {
+        display: none;
+      }
+
+      &_open {
+        .interaction-main__text {
+          display: block;
+        }
+        .interaction-main__icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &__btn {
+      color: var(--primary-main);
+      font-family: Calibri;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 25px; /* 125% */
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--primary-main);
+      padding: 6px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &-risk {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 5px;
+    }
+
+    &__circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: gray;
+
+      &_high {
+        background-color: #f00;
+      }
+
+      &_normal {
+        background-color: #ffcd0e;
+      }
+
+      &_good {
+        background-color: green;
+      }
+    }
+  }
+}

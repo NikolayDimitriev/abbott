@@ -324,33 +324,34 @@
       });
     }
 
-    $("body").on("click", ".add-symptom", function () {
+    $("body").on("click", ".first-test .add-symptom", function () {
       let name = $(this).text();
       let id = $(this).data("id");
       addSymptom(name, id);
     });
 
-    $("body").on("click", ".symptom-item__remove", function () {
+    $("body").on("click", ".first-test .symptom-item__remove", function () {
       let id = $(this).data("id");
       let type = $(this).data("type");
       $(this).closest(".symptom-item").hide();
       removeSymptom(id, type);
     });
 
-    $("body").on("click", ".clear-all-symptoms", function () {
+    $("body").on("click", ".first-test .clear-all-symptoms", function () {
       clearAllSymptoms();
     });
 
-    $("body").on("click", ".go-to-back", function () {
+    $("body").on("click", ".first-test .go-to-back", function () {
       let addedSymptoms = JSON.parse(localStorage.getItem("addedSymptoms"));
       let slide = $(this).data("slide");
       let title, percent;
 
       if (slide === "#start-page") {
-        $(".section-wrap").removeClass("active-page");
-        $(".breeading-page").addClass("active-page");
-        $(".repeated").removeClass("active-page");
-        $(".controle-test").removeClass("active-page");
+        $("#first-test-page").removeClass("active-page");
+        $("#start-page").addClass("active-page");
+        $("#controle-test-page").removeClass("active-page");
+        $("#interaction-page").removeClass("active-page");
+        $("#repeated-test-page").removeClass("active-page");
       } else {
         switch (slide) {
           case "#first-slide-1":
@@ -371,7 +372,7 @@
       }
     });
 
-    $("body").on("click", ".go-to-next", function () {
+    $("body").on("click", ".first-test .go-to-next", function () {
       let addedSymptoms = JSON.parse(localStorage.getItem("addedSymptoms"));
       let slide = $(this).data("slide");
       let title, percent;
@@ -394,7 +395,7 @@
       goToSlide(slide, title, percent);
     });
 
-    $("body").on("click", ".go-to-result", function () {
+    $("body").on("click", ".first-test .go-to-result", function () {
       let answers = JSON.parse(localStorage.getItem("answers"));
       let sum = 0;
       let fifth = answers[5];
@@ -500,10 +501,7 @@
         $("#nothing-found").hide();
       }
 
-      console.log($("#fast-search-input").val());
-
       if ($("#fast-search-input").val() == undefined) {
-        console.log("dfdf");
         $("#nothing-found").show();
         $("#nothing-found").text("Начните вводить...");
       }

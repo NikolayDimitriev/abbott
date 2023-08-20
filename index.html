@@ -12,15 +12,23 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+    <script defer src="./js/globalVariables.js"></script>
 
     <script defer src="./js/start.js"></script>
 
     <script defer src="./js/dataBase.js"></script>
+
     <script defer src="./js/quiz.js"></script>
     <script defer src="./js/first.js"></script>
 
     <script defer src="./js/repeated.js"></script>
     <script defer src="./js/control.js"></script>
+
+    <script defer src="./js/dbInteraction.js"></script>
+
+    <script defer src="./js/dbMedicament.js"></script>
+
+    <script defer src="./js/interaction.js"></script>
   </head>
 
   <body>
@@ -177,7 +185,282 @@
       </section>
     </div>
 
-    <div class="section-wrap">
+    <div class="section-wrap interaction" id="interaction-page">
+      <section class="section gastro-calculator-wrap">
+        <div class="container">
+          <div class="row">
+            <div class="gastro-calculator-card">
+              <div class="gastro-calculator-header">
+                <div
+                  id="interaction-header-label"
+                  class="gastro-calculator-header__label"
+                >
+                  Шаг 1: Выбор препаратов
+                </div>
+                <div
+                  id="interaction-header-percent"
+                  class="gastro-calculator-header__percent"
+                >
+                  10%
+                </div>
+                <div
+                  id="interaction-progress-bar"
+                  class="gastro-calculator-header__bar progress-bar"
+                >
+                  <span style="width: 10%"></span>
+                </div>
+              </div>
+              <div class="gastro-calculator-content">
+                <div
+                  id="interaction-slide-1"
+                  class="gastro-calculator-slide is-active"
+                >
+                  <div class="calculator-slide calculator-slide--columns">
+                    <div class="calculator-slide-column">
+                      <div class="calculator-btn-wrap btn-wrap">
+                        <button
+                          class="btn-back-to btn-reset go-to-back"
+                          data-slide=""
+                        >
+                          Назад
+                        </button>
+                      </div>
+                      <div class="calculator-title">
+                        проверка межлекарственных взаимодействий
+                      </div>
+                      <div class="calculator-text">
+                        <p>
+                          Укажите все лекарственные препараты (МНН), которые
+                          пациент принимает в настоящее время, для проверки
+                          межлекарственных взаимодействий с препаратами для
+                          лечения ГЭРБ
+                        </p>
+                      </div>
+                      <div class="fast-search">
+                        <div class="fast-search__input">
+                          <input
+                            type="text"
+                            id="interaction-fast-search-input"
+                            placeholder="Начните ввод"
+                          />
+                        </div>
+                        <div class="fast-search__dropdown">
+                          <div class="search-dropdown">
+                            <div id="interaction-search-output"></div>
+                            <div
+                              id="interaction-nothing-found"
+                              class="search-dropdown__item btn-reset pointer-events-none"
+                            >
+                              Начните вводить...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="calculator-bottom">
+                        <div class="often-searched">
+                          <div class="often-searched__label">Часто ищут:</div>
+                          <div
+                            id="interaction-horizontal-symptoms"
+                            class="often-searched__content"
+                          >
+                            <button class="searched-item btn-reset add-symptom">
+                              Акалабрутиниб
+                            </button>
+                            <button class="searched-item btn-reset add-symptom">
+                              Цефдиторен
+                            </button>
+                            <button class="searched-item btn-reset add-symptom">
+                              Цефуроксим
+                            </button>
+                            <button class="searched-item btn-reset add-symptom">
+                              Клопидогрел
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="calculator-slide-column">
+                      <div class="calculator-btn-wrap btn-wrap hide-on-mobile">
+                        <a href="#" class="btn-back-to dummy">dummy</a>
+                      </div>
+                      <div class="calculator-header calculator-header-gap">
+                        <div class="calculator-title">
+                          Выбранные лекарственные препараты (МНН)
+                        </div>
+                        <button
+                          class="btn-as-link btn-reset clear-all-symptoms"
+                        >
+                          Сбросить все
+                        </button>
+                      </div>
+                      <div
+                        id="interaction-added-symptoms"
+                        class="added-symptoms"
+                      ></div>
+                      <div class="calculator-bottom btn-wrap btn-wrap--end">
+                        <button
+                          id="interaction-go"
+                          class="btn btn--250 btn-reset hide go-to-next"
+                          data-slide="#interaction-slide-2"
+                        >
+                          Продолжить
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="interaction-slide-2" class="gastro-calculator-slide">
+                  <div class="calculator-slide">
+                    <div class="calculator-btn-wrap btn-wrap">
+                      <button
+                        class="btn-back-to btn-reset go-to-back"
+                        data-slide="#interaction-slide-1"
+                      >
+                        Назад
+                      </button>
+                    </div>
+
+                    <div class="interaction__header">
+                      <h1 class="interaction__title title-reset">
+                        проверка межлекарственных взаимодействий
+                      </h1>
+                      <p class="interaction__text">
+                        Проверка была проведена со следующими лекарственными
+                        препаратами (МНН)
+                      </p>
+                      <div class="interaction-buttons">
+                        <button
+                          class="interaction-buttons__btn btn-reset interaction-buttons__btn_active"
+                        >
+                          Эзомепразол
+                        </button>
+                        <button class="interaction-buttons__btn btn-reset">
+                          Рабепразол
+                        </button>
+                        <button class="interaction-buttons__btn btn-reset">
+                          Омепразол
+                        </button>
+                        <button class="interaction-buttons__btn btn-reset">
+                          Лансопразол
+                        </button>
+                        <button class="interaction-buttons__btn btn-reset">
+                          Лансопразол
+                        </button>
+                        <button class="interaction-buttons__btn btn-reset">
+                          Лансопразол
+                        </button>
+                      </div>
+                    </div>
+
+                    <div id="interaction-main" class="interaction-main">
+                      <div class="interaction-main__item">
+                        <h2 class="interaction-main__title title-reset">
+                          Клопидогрел
+                        </h2>
+                        <div class="interaction-main__info">
+                          <div class="interaction-main__left">
+                            <div class="interaction-risk">
+                              <h3
+                                class="interaction-main__subtitle title-reset"
+                              >
+                                Риск для пациента
+                              </h3>
+                              <div class="interaction-risk__wrapper">
+                                <div
+                                  class="interaction-risk__circle interaction-risk__circle_high"
+                                ></div>
+                                <p class="interaction-main__text">Высокий</p>
+                              </div>
+                            </div>
+                            <div class="interaction-main__block">
+                              <div class="interaction-recommendations">
+                                <h3
+                                  class="interaction-main__subtitle title-reset"
+                                >
+                                  Рекомендация
+                                </h3>
+                                <p class="interaction-main__text">
+                                  Избегайте совместного назначения
+                                </p>
+                              </div>
+                              <div class="interaction-level">
+                                <h3
+                                  class="interaction-main__subtitle title-reset"
+                                >
+                                  Уровень достоверности
+                                </h3>
+                                <p class="interaction-main__text">
+                                  Средний: Существующие данные/отчеты
+                                  противоречивы
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="interaction-main__descr">
+                            Эзомепразол может снижать антитромбоцитарный эффект
+                            Клопидогрела. Эзомепразол может снижать концентрацию
+                            активного метаболита (-ов) Клопидогрела в сыворотке
+                            крови.
+                          </p>
+                        </div>
+                        <div class="interaction-main__tactic">
+                          <button class="interaction-main__btn btn-reset">
+                            Тактика ведения пациента
+                            <div class="interaction-main__icon">
+                              <img
+                                src="./img/interaction_arrow.svg"
+                                alt="icon"
+                              />
+                            </div>
+                          </button>
+                          <p class="interaction-main__text">
+                            В инструкции по применению Клопидогрела
+                            рекомендуется избегать одновременного применения с
+                            Эзомепразолом из-за риска снижения эффективности
+                            Клопидогрела. Рабепразол или Пантопразол могут быть
+                            альтернативами Эзомепразолу с меньшим риском.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="calculator-bottom btn-wrap btn-wrap--end">
+                      <button
+                        class="btn btn--250 btn--border btn-reset back-to-page-before-interaction"
+                      >
+                        К результатам приема
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gastro-calculator-btn-wrap">
+              <a href="#" class="gastro-calculator-btn">
+                <span>Ключевые источники информации</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  fill="none"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.89164 2.73051C5.19205 2.42487 5.67909 2.42487 5.9795 2.73051L11.1077 7.94791C11.252 8.09467 11.333 8.29373 11.333 8.5013C11.333 8.70885 11.252 8.90791 11.1077 9.05469L5.9795 14.2721C5.67909 14.5777 5.19205 14.5777 4.89164 14.2721C4.59124 13.9664 4.59124 13.4709 4.89164 13.1653L9.47593 8.5013L4.89164 3.83729C4.59124 3.53166 4.59124 3.03614 4.89164 2.73051Z"
+                    fill="#009CDE"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="section-wrap first-test" id="first-test-page">
       <section class="section gastro-calculator-wrap">
         <div class="container">
           <div class="row">
@@ -1380,7 +1663,7 @@
       </section>
     </div>
 
-    <div class="repeated">
+    <div class="repeated" id="repeated-test-page">
       <section class="repeated__section">
         <div class="repeated__container">
           <div class="repeated__card">
@@ -2284,7 +2567,8 @@
                         </div>
                         <img
                           src="./img/icon-card-14.png"
-                          class="repeated-recommendations__icon"  alt=""
+                          class="repeated-recommendations__icon"
+                          alt=""
                         />
                       </div>
                     </div>
@@ -2298,7 +2582,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon"  alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -2311,7 +2596,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -2339,7 +2625,8 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
                   </div>
@@ -2512,13 +2799,12 @@
                     </p>
                   </div>
 
-                  <a
-                    href="#"
-                    class="repeated-content__link repeated-content__link_testing"
+                  <button
+                    class="repeated-content__link repeated-content__link_testing btn-reset check-interaction-btn"
                   >
                     <img src="./img/magnifier.svg" alt="лупа" />
                     проверить межлекарственные взаимодействия
-                  </a>
+                  </button>
 
                   <div
                     class="repeated-content__divider repeated-content__divider_mobile"
@@ -2576,7 +2862,8 @@
                         </div>
                         <img
                           src="./img/icon-card-14.png"
-                          class="repeated-recommendations__icon" alt=""
+                          class="repeated-recommendations__icon"
+                          alt=""
                         />
                       </div>
                     </div>
@@ -2590,7 +2877,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -2603,7 +2891,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -2631,7 +2920,8 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
                   </div>
@@ -2812,13 +3102,12 @@
                     </p>
                   </div>
 
-                  <a
-                    href="#"
-                    class="repeated-content__link repeated-content__link_testing"
+                  <button
+                    class="repeated-content__link repeated-content__link_testing btn-reset check-interaction-btn"
                   >
                     <img src="./img/magnifier.svg" alt="лупа" />
                     проверить межлекарственные взаимодействия
-                  </a>
+                  </button>
 
                   <div
                     class="repeated-content__divider repeated-content__divider_mobile"
@@ -2876,7 +3165,8 @@
                         </div>
                         <img
                           src="./img/icon-card-14.png"
-                          class="repeated-recommendations__icon" alt=""
+                          class="repeated-recommendations__icon"
+                          alt=""
                         />
                       </div>
                     </div>
@@ -2890,7 +3180,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -2903,7 +3194,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -2932,7 +3224,8 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
                   </div>
@@ -3112,13 +3405,12 @@
                     </p>
                   </div>
 
-                  <a
-                    href="#"
-                    class="repeated-content__link repeated-content__link_testing"
+                  <button
+                    class="repeated-content__link repeated-content__link_testing btn-reset check-interaction-btn"
                   >
                     <img src="./img/magnifier.svg" alt="лупа" />
                     проверить межлекарственные взаимодействия
-                  </a>
+                  </button>
 
                   <div
                     class="repeated-content__divider repeated-content__divider_mobile"
@@ -3176,7 +3468,8 @@
                         </div>
                         <img
                           src="./img/icon-card-14.png"
-                          class="repeated-recommendations__icon" alt=""
+                          class="repeated-recommendations__icon"
+                          alt=""
                         />
                       </div>
                     </div>
@@ -3190,7 +3483,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -3203,7 +3497,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -3232,7 +3527,8 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
                   </div>
@@ -3412,13 +3708,12 @@
                     </p>
                   </div>
 
-                  <a
-                    href="#"
-                    class="repeated-content__link repeated-content__link_testing"
+                  <button
+                    class="repeated-content__link repeated-content__link_testing btn-reset check-interaction-btn"
                   >
                     <img src="./img/magnifier.svg" alt="лупа" />
                     проверить межлекарственные взаимодействия
-                  </a>
+                  </button>
 
                   <div
                     class="repeated-content__divider repeated-content__divider_mobile"
@@ -3504,7 +3799,8 @@
                     </div>
                     <img
                       src="./img/icon-card-1.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -3569,7 +3865,8 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3580,7 +3877,8 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3594,7 +3892,8 @@
                     </div>
                     <img
                       src="./img/icon-card-5.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -3666,7 +3965,8 @@
                     </div>
                     <img
                       src="./img/icon-card-2.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -3714,7 +4014,8 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3732,7 +4033,8 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3743,7 +4045,8 @@
                     </div>
                     <img
                       src="./img/icon-card-8.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3762,7 +4065,8 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -3808,7 +4112,8 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3819,7 +4124,8 @@
                     </div>
                     <img
                       src="./img/icon-card-8.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3838,7 +4144,8 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -3886,7 +4193,8 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3903,7 +4211,8 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3917,7 +4226,8 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -3936,7 +4246,8 @@
                     </div>
                     <img
                       src="./img/icon-card-5.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -3987,7 +4298,8 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -4066,7 +4378,8 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -4080,7 +4393,8 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -4144,7 +4458,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -4172,7 +4487,8 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
                     <div class="repeated-recommendations__item">
@@ -4190,7 +4506,8 @@
                       </div>
                       <img
                         src="./img/icon-card-1.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
                   </div>
@@ -4336,13 +4653,12 @@
                     </p>
                   </div>
 
-                  <a
-                    href="#"
-                    class="repeated-content__link repeated-content__link_testing"
+                  <button
+                    class="repeated-content__link repeated-content__link_testing btn-reset check-interaction-btn"
                   >
                     <img src="./img/magnifier.svg" alt="лупа" />
                     проверить межлекарственные взаимодействия
-                  </a>
+                  </button>
 
                   <div
                     class="repeated-content__divider repeated-content__divider_mobile"
@@ -4379,7 +4695,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -4407,7 +4724,8 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
                   </div>
@@ -4553,13 +4871,12 @@
                     </p>
                   </div>
 
-                  <a
-                    href="#"
-                    class="repeated-content__link repeated-content__link_testing"
+                  <button
+                    class="repeated-content__link repeated-content__link_testing btn-reset check-interaction-btn"
                   >
                     <img src="./img/magnifier.svg" alt="лупа" />
                     проверить межлекарственные взаимодействия
-                  </a>
+                  </button>
 
                   <div
                     class="repeated-content__divider repeated-content__divider_mobile"
@@ -4609,7 +4926,8 @@
                       </div>
                       <img
                         src="./img/icon-card-3.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
                   </div>
@@ -4623,7 +4941,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -4636,7 +4955,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -4864,7 +5184,8 @@
                     </div>
                     <img
                       src="./img/icon-card-8.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
 
@@ -4884,7 +5205,8 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
 
@@ -4904,7 +5226,8 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -4945,7 +5268,8 @@
                     </div>
                     <img
                       src="./img/icon-card-5.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                   <div class="repeated-recommendations__item">
@@ -4971,7 +5295,8 @@
                     </div>
                     <img
                       src="./img/icon-card-11.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -5020,7 +5345,8 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
 
@@ -5038,7 +5364,8 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
 
@@ -5053,7 +5380,8 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -5103,7 +5431,8 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
 
@@ -5121,7 +5450,8 @@
                     </div>
                     <img
                       src="./img/icon-card-6.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
 
@@ -5136,7 +5466,8 @@
                     </div>
                     <img
                       src="./img/icon-card-9.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -5179,7 +5510,8 @@
                     </div>
                     <img
                       src="./img/icon-card-5.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
 
@@ -5191,7 +5523,8 @@
                     </div>
                     <img
                       src="./img/icon-card-1.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
 
@@ -5204,7 +5537,8 @@
                     </div>
                     <img
                       src="./img/icon-card-12.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
 
@@ -5231,7 +5565,8 @@
                     </div>
                     <img
                       src="./img/icon-card-7.png"
-                      class="repeated-recommendations__icon" alt=""
+                      class="repeated-recommendations__icon"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -5264,7 +5599,8 @@
                   <div class="repeated-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="repeated-warning__icon" alt=""
+                      class="repeated-warning__icon"
+                      alt=""
                     />
                     <div class="repeated-warning__info">
                       <p class="repeated-warning__text">
@@ -5300,7 +5636,8 @@
                       </div>
                       <img
                         src="./img/icon-card-7.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
 
@@ -5318,7 +5655,8 @@
                       </div>
                       <img
                         src="./img/icon-card-6.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
 
@@ -5333,7 +5671,8 @@
                       </div>
                       <img
                         src="./img/icon-card-13.png"
-                        class="repeated-recommendations__icon" alt=""
+                        class="repeated-recommendations__icon"
+                        alt=""
                       />
                     </div>
                   </div>
@@ -5376,7 +5715,7 @@
       </section>
     </div>
 
-    <div class="controle-test">
+    <div class="controle-test" id="controle-test-page">
       <section class="controle-test__section">
         <div class="controle-test__container">
           <div class="controle-test__card">
@@ -6334,7 +6673,8 @@
                         </div>
                         <img
                           src="./img/icon-card-1.png"
-                          class="controle-test-recommendations__icon" alt=""
+                          class="controle-test-recommendations__icon"
+                          alt=""
                         />
                       </div>
                     </div>
@@ -6348,7 +6688,8 @@
                     <div class="controle-test-warning">
                       <img
                         src="./img/warning-message.svg"
-                        class="controle-test-warning__icon" alt=""
+                        class="controle-test-warning__icon"
+                        alt=""
                       />
                       <div class="controle-test-warning__info">
                         <p class="controle-test-warning__text">
@@ -6568,7 +6909,8 @@
                       </div>
                       <img
                         src="./img/icon-card-6.png"
-                        class="controle-test-recommendations__icon" alt=""
+                        class="controle-test-recommendations__icon"
+                        alt=""
                       />
                     </div>
 
@@ -6583,7 +6925,8 @@
                       </div>
                       <img
                         src="./img/icon-card-15.png"
-                        class="controle-test-recommendations__icon" alt=""
+                        class="controle-test-recommendations__icon"
+                        alt=""
                       />
                     </div>
 
@@ -6597,7 +6940,8 @@
                       </div>
                       <img
                         src="./img/icon-card-10.png"
-                        class="controle-test-recommendations__icon" alt=""
+                        class="controle-test-recommendations__icon"
+                        alt=""
                       />
                     </div>
 
@@ -6612,7 +6956,8 @@
                       </div>
                       <img
                         src="./img/icon-card-7.png"
-                        class="controle-test-recommendations__icon" alt=""
+                        class="controle-test-recommendations__icon"
+                        alt=""
                       />
                     </div>
                   </div>
@@ -6642,7 +6987,8 @@
                         </div>
                         <img
                           src="./img/icon-card-1.png"
-                          class="controle-test-recommendations__icon" alt=""
+                          class="controle-test-recommendations__icon"
+                          alt=""
                         />
                       </div>
                     </div>
@@ -6789,7 +7135,8 @@
                   <div class="controle-test-warning">
                     <img
                       src="./img/warning-message.svg"
-                      class="controle-test-warning__icon" alt=""
+                      class="controle-test-warning__icon"
+                      alt=""
                     />
                     <div class="controle-test-warning__info">
                       <p class="controle-test-warning__text">

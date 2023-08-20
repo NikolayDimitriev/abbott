@@ -826,6 +826,10 @@
   flex-direction: column;
 }
 
+.interaction .gastro-calculator-card {
+  min-height: 835px;
+}
+
 .gastro-calculator-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1058,6 +1062,11 @@
   margin-top: 12px;
 }
 
+.calculator-header-gap {
+  gap: 20px;
+  align-items: center;
+}
+
 .calculator-header > .btn-as-link {
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -1157,6 +1166,12 @@
   margin-top: 6px;
   width: calc(100% - 12px);
   margin: 0 -6px;
+}
+
+.interaction .often-searched__content {
+  width: 102%;
+  margin: 0;
+  margin-top: 6px;
 }
 
 .often-searched__content > * {
@@ -1265,6 +1280,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
+  outline: none;
 }
 
 .fast-search input::-webkit-input-placeholder {
@@ -1314,7 +1330,7 @@
   overflow: hidden;
   color: #8c8c8c;
   text-overflow: ellipsis;
-  whitespace: nowrap;
+  white-space: nowrap;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

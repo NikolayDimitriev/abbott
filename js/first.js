@@ -5,12 +5,12 @@
       $(this).addClass("is-active");
     });
 
-    $("body").on("click", ".fast-search__input input", function () {
+    $("body").on("click", ".first-test .fast-search__input input", function () {
       $(this).closest(".fast-search").addClass("is-open");
     });
 
     $(document).mouseup(function (e) {
-      var container = $(".fast-search");
+      var container = $(".first-test .fast-search");
 
       // if the target of the click isn't the container nor a descendant of the container
       if (!container.is(e.target) && container.has(e.target).length === 0) {
@@ -92,7 +92,7 @@
       }
     );
 
-    $("body").on("click", ".clear-form-filter", function () {
+    $("body").on("click", ".first-test .clear-form-filter", function () {
       let parentFilter = $(this).closest(".filter-item-js");
       let select = parentFilter.find(".select");
       let input = parentFilter.find("input:not(.not-clearable)");

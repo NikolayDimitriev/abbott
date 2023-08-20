@@ -3,19 +3,20 @@
     $("body").on("click", ".consult-info__reception__item__link", function () {
       const page = $(this).data("page");
 
-      $(".breeading-page").removeClass("active-page");
-      $(".section-wrap").removeClass("active-page");
-      $(".repeated").removeClass("active-page");
-      $(".controle-test").removeClass("active-page");
+      $("#start-page").removeClass("active-page");
+      $("#interaction-page").removeClass("active-page");
+      $("#first-test-page").removeClass("active-page");
+      $("#repeated-test-page").removeClass("active-page");
+      $("#controle-test-page").removeClass("active-page");
 
       if (page == 1) {
-        $(".section-wrap").addClass("active-page");
+        $("#first-test-page").addClass("active-page");
       }
       if (page == 2) {
-        $(".repeated").addClass("active-page");
+        $("#repeated-test-page").addClass("active-page");
       }
       if (page == 3) {
-        $(".controle-test").addClass("active-page");
+        $("#controle-test-page").addClass("active-page");
       }
     });
   });
