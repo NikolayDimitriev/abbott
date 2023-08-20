@@ -142,6 +142,27 @@
       goToSlide(slide, title, percent);
     });
 
+    $("body").on("click", ".interaction .go-to-back", function () {
+      let slide = $(this).data("slide");
+      let title, percent;
+
+      if (slide === "") {
+        $("#interaction-page").removeClass("active-page");
+        $(`#${lastPageBeforeInteraction}`).addClass("active-page");
+
+        clearAllSymptoms();
+      } else {
+        switch (slide) {
+          case "#interaction-slide-1":
+            title = "Шаг 1: Выбор препаратов";
+            percent = "10%";
+            break;
+        }
+
+        goToSlide(slide, title, percent);
+      }
+    });
+
     function goToSlide(slide, title, percent) {
       $(".gastro-calculator-slide").removeClass("is-active");
       $(slide).addClass("is-active");
@@ -149,15 +170,6 @@
       $("#interaction-header-percent").text(percent);
       $("#interaction-progress-bar span").width(percent);
     }
-
-    let activeBtn = $(".interaction-buttons__btn_active");
-
-    $(".interaction-buttons__btn").click(function () {
-      $(this).siblings().removeClass("interaction-buttons__btn_active");
-      $(this).addClass("interaction-buttons__btn_active");
-      activeBtn = $(this);
-      searchInteraction();
-    });
 
     function setListinerToMainBtn() {
       $(".interaction-main__btn").click(function () {
@@ -168,11 +180,11 @@
     function searchInteraction() {
       document.getElementById("interaction-main").innerHTML = "";
 
-      if (!activeBtn || !medicine || medicine.size === 0) {
+      if (!medicine || medicine.size === 0) {
         return;
       }
 
-      const key = activeBtn.text().trim();
+      const key = $(".interaction-buttons__btn_active").text().trim();
 
       const outputArray = dbInteraction[key].filter(function (item) {
         return medicine.has(item.name);
@@ -281,9 +293,68 @@
       setListinerToMainBtn();
     }
 
+    function updateEvents() {
+      $(".interaction-buttons__btn").click(function () {
+        $(this).siblings().removeClass("interaction-buttons__btn_active");
+        $(this).addClass("interaction-buttons__btn_active");
+        searchInteraction();
+      });
+
+      $(".interaction-buttons__icon").click(function () {
+        $(this).parent().toggleClass("interaction-buttons_open");
+      });
+    }
+
+    function updateInteractionMedicineButtons() {
+      $(".interaction-buttons__btn").off("click");
+      $(".interaction-buttons__icon").off("click");
+      document.querySelector(".interaction-buttons").innerHTML = "";
+
+      interactionMedicine.forEach(function (item, index) {
+        if (index === 0) {
+          const block = `
+            <button class="interaction-buttons__btn btn-reset interaction-buttons__btn_active">
+              ${item}
+            </button>`;
+
+          $(".interaction-buttons").append(block);
+        } else {
+          const block = `
+            <button class="interaction-buttons__btn btn-reset">
+                ${item}
+            </button>
+          `;
+          $(".interaction-buttons").append(block);
+        }
+      });
+
+      const toggleBtn = `
+        <button class="interaction-buttons__icon btn-reset">
+          <img src="./img/interaction_arrow.svg" alt="icon" />
+        </button>
+      `;
+
+      $(".interaction-buttons").append(toggleBtn);
+
+      updateEvents();
+    }
+
     // Переход на стр. проверки и возвращение назад
     $(".check-interaction-btn").click(function () {
       lastPageBeforeInteraction = $(".active-page").attr("id");
+
+      console.log($(this).data("medicine"));
+
+      if ($(this).data("medicine")) {
+        interactionMedicine = $(this)
+          .data("medicine")
+          .split(",")
+          .map(function (str) {
+            return str.trim();
+          });
+      } else {
+        interactionMedicine = defaultInteractionMedicine;
+      }
 
       $(".active-page").removeClass("active-page");
 
@@ -292,6 +363,8 @@
       $("#start-page").removeClass("active-page");
       $("#repeated-test-page").removeClass("active-page");
       $("#first-test-page").removeClass("active-page");
+
+      updateInteractionMedicineButtons();
     });
 
     $(".back-to-page-before-interaction").click(function () {
@@ -300,7 +373,6 @@
 
       goToSlide("#interaction-slide-1", "Шаг 1: Выбор препаратов", "10%");
       clearAllSymptoms();
-
     });
   });
 })();

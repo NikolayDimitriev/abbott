@@ -44,6 +44,15 @@
       margin: 0;
     }
 
+    &_open {
+      height: auto;
+      overflow: visible;
+
+      .interaction-buttons__icon {
+        transform: rotate(180deg);
+      }
+    }
+
     &__btn {
       border-radius: 40px;
       border: 1px solid var(--main-color);
@@ -66,6 +75,32 @@
       &_active {
         background-color: var(--primary-main);
         color: #fff;
+      }
+    }
+
+    &__icon {
+      order: -1;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--primary-main);
+      padding: 14px;
+      transition: transform 0.3s ease-in-out;
+      outline: none;
+
+      @include mobile {
+        width: 32px;
+        height: 32px;
+        padding: 4px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
@@ -131,7 +166,6 @@
 
     &__block {
       display: flex;
-      justify-content: space-between;
       width: 100%;
       gap: 24px;
 
