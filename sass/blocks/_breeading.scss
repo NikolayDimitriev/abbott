@@ -364,6 +364,7 @@
       }
     }
     &__button {
+      width: 100%;
       position: relative;
       margin: 0 0 20px;
       padding: 24px;
@@ -389,6 +390,12 @@
         line-height: 20px;
         padding: 16px;
       }
+
+      &_open {
+        svg {
+          transform: rotate(90deg);
+        }
+      }
     }
     &__desc {
       color: var(--text-secondary, #8c8c8c);
@@ -396,6 +403,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: 18px;
+      margin-top: 20px;
     }
   }
 }

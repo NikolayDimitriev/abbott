@@ -19,5 +19,9 @@
         $("#controle-test-page").addClass("active-page");
       }
     });
+
+    $("body").on("click", ".abbott-more-sources__button", function () {
+      $(this).parent().toggleClass("abbott-more-sources_open");
+    });
   });
 })();
