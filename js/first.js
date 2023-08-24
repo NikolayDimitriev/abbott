@@ -1,9 +1,11 @@
 (function () {
   jQuery(function ($) {
-    $(".gastro-calculator-slide .question-button").click(function () {
-      $(this).siblings().removeClass("is-active");
-      $(this).addClass("is-active");
-    });
+    $(".first-test .gastro-calculator-slide .question-button").click(
+      function () {
+        $(this).siblings().removeClass("is-active");
+        $(this).addClass("is-active");
+      }
+    );
 
     $("body").on("click", ".first-test .fast-search__input input", function () {
       $(this).closest(".fast-search").addClass("is-open");
@@ -21,28 +23,28 @@
     // Custom Select
     $("body").on(
       "click",
-      ".gastro-calculator-slide .select__selected",
+      ".first-test .gastro-calculator-slide .abbott-test-select__selected",
       function () {
-        let thisParent = $(this).closest(".select");
+        let thisParent = $(this).closest(".abbott-test-select");
 
-        $(".select").not(thisParent).addClass("select--closed");
-        thisParent.toggleClass("select--closed");
+        $(".abbott-test-select").not(thisParent).addClass("abbott-test-select--closed");
+        thisParent.toggleClass("abbott-test-select--closed");
       }
     );
 
     $("body").on(
       "click",
-      ".gastro-calculator-slide .select__option",
+      ".first-test .gastro-calculator-slide .abbott-test-select__option",
       function () {
         let currentOption = $(this);
         let currentOptionValue = currentOption.data("value");
-        let thisParent = currentOption.closest(".select");
+        let thisParent = currentOption.closest(".abbott-test-select");
         let dataText = currentOption.data("text");
         let textInput;
 
-        if (thisParent.find(".select__text-input")) {
+        if (thisParent.find(".abbott-test-select__text-input")) {
           let value = dataText;
-          textInput = thisParent.find(".select__text-input");
+          textInput = thisParent.find(".abbott-test-select__text-input");
 
           if (typeof currentOptionValue !== "undefined") {
             value = currentOptionValue;
@@ -51,26 +53,28 @@
           textInput.val(value).trigger("change");
         }
 
-        if (!currentOption.hasClass("select__option--checkbox")) {
+        if (!currentOption.hasClass("abbott-test-select__option--checkbox")) {
           currentOption
-            .closest(".select")
-            .find(".select__selected")
+            .closest(".abbott-test-select")
+            .find(".abbott-test-select__selected")
             .html("<span>" + dataText + "</span>");
-          $(".select__option").removeClass("select__option--active");
+          $(".abbott-test-select__option").removeClass("abbott-test-select__option--active");
         }
 
-        currentOption.addClass("select__option--active");
-        currentOption.closest(".select").addClass("select--active");
-        currentOption.closest(".select").toggleClass("select--closed");
+        currentOption.addClass("abbott-test-select__option--active");
+        currentOption.closest(".abbott-test-select").addClass("abbott-test-select--active");
+        currentOption.closest(".abbott-test-select").toggleClass("abbott-test-select--closed");
       }
     );
 
     $(document).mouseup(function (e) {
-      var container = $(".gastro-calculator-slide .select");
+      var container = $(
+        ".first-test .gastro-calculator-slide .abbott-test-select"
+      );
 
       // if the target of the click isn't the container nor a descendant of the container
       if (!container.is(e.target) && container.has(e.target).length === 0) {
-        container.addClass("select--closed");
+        container.addClass("abbott-test-select--closed");
       }
     });
 
@@ -80,7 +84,7 @@
 
     $("body").on(
       "click",
-      ".gastro-calculator-slide .select__option",
+      ".first-test .gastro-calculator-slide .abbott-test-select__option",
       function () {
         let currentOption = $(this);
         let span = currentOption.find("span");
@@ -94,19 +98,21 @@
 
     $("body").on("click", ".first-test .clear-form-filter", function () {
       let parentFilter = $(this).closest(".filter-item-js");
-      let select = parentFilter.find(".select");
+      let select = parentFilter.find(".abbott-test-select");
       let input = parentFilter.find("input:not(.not-clearable)");
 
       $(select).each(function () {
         let thisSelect = $(this);
-        let defaultText = thisSelect.find(".select__selected").data("default");
+        let defaultText = thisSelect
+          .find(".abbott-test-select__selected")
+          .data("default");
 
         $(thisSelect)
-          .find(".select__option")
-          .removeClass("select__option--active");
-        $(thisSelect).removeClass("select--active");
+          .find(".abbott-test-select__option")
+          .removeClass("abbott-test-select__option--active");
+        $(thisSelect).removeClass("abbott-test-select--active");
         $(thisSelect)
-          .find(".select__selected")
+          .find(".abbott-test-select__selected")
           .html("<span>" + defaultText + "</span>");
       });
 

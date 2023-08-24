@@ -85,7 +85,7 @@
     }
 
     function goToSlide(slide, title, percent, probability) {
-      $(".gastro-calculator-slide").removeClass("is-active");
+      $(".first-test .gastro-calculator-slide").removeClass("is-active");
       $(slide).addClass("is-active");
       $("#header-label").text(title);
       $("#header-percent").text(percent);
@@ -134,6 +134,8 @@
 
         groupedSymptoms[groupId]["symptoms"].push(title);
       }
+
+      document.getElementById("extraesophageal-results").innerHTML = "";
 
       Object.entries(groupedSymptoms).forEach(([key, value]) => {
         let symptomsString = value["symptoms"].toString();
@@ -352,6 +354,7 @@
         $("#controle-test-page").removeClass("active-page");
         $("#interaction-page").removeClass("active-page");
         $("#repeated-test-page").removeClass("active-page");
+        $(window).scrollTop(0);
       } else {
         switch (slide) {
           case "#first-slide-1":
@@ -434,20 +437,24 @@
     }
 
     //Test
-    $("body").on("click", ".gastro-calculator-slide .answer-js", function () {
-      let answers = JSON.parse(localStorage.getItem("answers"));
-      let question = $(this).data("question");
-      let points = $(this).data("points");
+    $("body").on(
+      "click",
+      ".first-test .gastro-calculator-slide .answer-js",
+      function () {
+        let answers = JSON.parse(localStorage.getItem("answers"));
+        let question = $(this).data("question");
+        let points = $(this).data("points");
 
-      answers[question] = points;
+        answers[question] = points;
 
-      if (hasNull(answers) === false) {
-        $("#go-to-result").removeClass("hide");
+        if (hasNull(answers) === false) {
+          $("#go-to-result").removeClass("hide");
+        }
+
+        localStorage.removeItem("answers");
+        localStorage.setItem("answers", JSON.stringify(answers, null, 2));
       }
-
-      localStorage.removeItem("answers");
-      localStorage.setItem("answers", JSON.stringify(answers, null, 2));
-    });
+    );
 
     //Fast Search
     let returnLimit = 120; // Maximum number of results to return

@@ -149,6 +149,7 @@
       if (slide === "") {
         $("#interaction-page").removeClass("active-page");
         $(`#${lastPageBeforeInteraction}`).addClass("active-page");
+        $(window).scrollTop(0);
 
         clearAllSymptoms();
       } else {
@@ -164,7 +165,7 @@
     });
 
     function goToSlide(slide, title, percent) {
-      $(".gastro-calculator-slide").removeClass("is-active");
+      $(".interaction .gastro-calculator-slide").removeClass("is-active");
       $(slide).addClass("is-active");
       $("#interaction-header-label").text(title);
       $("#interaction-header-percent").text(percent);
@@ -363,6 +364,7 @@
       $("#start-page").removeClass("active-page");
       $("#repeated-test-page").removeClass("active-page");
       $("#first-test-page").removeClass("active-page");
+      $(window).scrollTop(0);
 
       updateInteractionMedicineButtons();
     });
@@ -370,6 +372,7 @@
     $(".back-to-page-before-interaction").click(function () {
       $("#interaction-page").removeClass("active-page");
       $(`#${lastPageBeforeInteraction}`).addClass("active-page");
+      $(window).scrollTop(0);
 
       goToSlide("#interaction-slide-1", "Шаг 1: Выбор препаратов", "10%");
       clearAllSymptoms();

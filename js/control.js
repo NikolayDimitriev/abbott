@@ -1,4 +1,4 @@
-(function() {
+(function () {
   window.addEventListener("DOMContentLoaded", function () {
     const answers = {
       1: null,
@@ -19,29 +19,29 @@
     // Custom Select
     $("body").on(
       "click",
-      ".controle-test-content__slide .select__selected",
+      ".controle-test-content__slide .abbott-test-select__selected",
       function () {
-        let thisParent = $(this).closest(".select");
+        let thisParent = $(this).closest(".abbott-test-select");
 
-        $(".select").not(thisParent).addClass("select--closed");
-        thisParent.toggleClass("select--closed");
+        $(".abbott-test-select").not(thisParent).addClass("abbott-test-select--closed");
+        thisParent.toggleClass("abbott-test-select--closed");
       }
     );
 
     // выбор из выпадающего списка
     $("body").on(
       "click",
-      ".controle-test-content__slide .select__option",
+      ".controle-test-content__slide .abbott-test-select__option",
       function () {
         let currentOption = $(this);
         let currentOptionValue = currentOption.data("value");
-        let thisParent = currentOption.closest(".select");
+        let thisParent = currentOption.closest(".abbott-test-select");
         let dataText = currentOption.data("text");
         let textInput;
 
-        if (thisParent.find(".select__text-input")) {
+        if (thisParent.find(".abbott-test-select__text-input")) {
           let value = dataText;
-          textInput = thisParent.find(".select__text-input");
+          textInput = thisParent.find(".abbott-test-select__text-input");
 
           if (typeof currentOptionValue !== "undefined") {
             value = currentOptionValue;
@@ -50,27 +50,31 @@
           textInput.val(value).trigger("change");
         }
 
-        if (!currentOption.hasClass("select__option--checkbox")) {
+        if (!currentOption.hasClass("abbott-test-select__option--checkbox")) {
           currentOption
-            .closest(".select")
-            .find(".select__selected")
+            .closest(".abbott-test-select")
+            .find(".abbott-test-select__selected")
             .html("<span>" + dataText + "</span>");
-          $(".select__option").removeClass("select__option--active");
+          $(".abbott-test-select__option").removeClass("abbott-test-select__option--active");
         }
 
-        currentOption.addClass("select__option--active");
-        currentOption.closest(".select").addClass("select--active");
-        currentOption.closest(".select").toggleClass("select--closed");
+        currentOption.addClass("abbott-test-select__option--active");
+        currentOption
+          .closest(".abbott-test-select")
+          .addClass("abbott-test-select--active");
+        currentOption
+          .closest(".abbott-test-select")
+          .toggleClass("abbott-test-select--closed");
       }
     );
 
     // закрытие выпадающего списка
     $(document).mouseup(function (e) {
-      var container = $(".controle-test-content__slide .select");
+      var container = $(".controle-test-content__slide .abbott-test-select");
 
       // if the target of the click isn't the container nor a descendant of the container
       if (!container.is(e.target) && container.has(e.target).length === 0) {
-        container.addClass("select--closed");
+        container.addClass("abbott-test-select--closed");
       }
     });
 
@@ -80,7 +84,7 @@
 
     $("body").on(
       "click",
-      ".controle-test-content__slide .select__option",
+      ".controle-test-content__slide .abbott-test-select__option",
       function () {
         let currentOption = $(this);
         let span = currentOption.find("span");
@@ -98,6 +102,15 @@
       }
       return false;
     }
+
+    $("body").on("click", ".additional-research-click", function () {
+      $("#controle-test-page").removeClass("active-page");
+      $("#repeated-test-page").addClass("active-page");
+      $("#start-page").removeClass("active-page");
+      $("#interaction-page").removeClass("active-page");
+      $("#first-test-page").removeClass("active-page");
+      $(window).scrollTop(0);
+    });
 
     //Test
     $("body").on(
@@ -250,6 +263,7 @@
         $("#interaction-page").removeClass("active-page");
         $("#repeated-test-page").removeClass("active-page");
         $("#first-test-page").removeClass("active-page");
+        $(window).scrollTop(0);
       }
 
       updateHeaderById(activeSlide.id);
@@ -383,5 +397,4 @@
       footer.classList.remove("controle-test-footer_active");
     }
   });
-
-})()
+})();

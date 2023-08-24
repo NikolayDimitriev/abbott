@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.container {
+.section__container {
   width: 100%;
   max-width: var(--container-max-width);
   display: -webkit-box;
@@ -16,7 +16,6 @@
   margin-right: auto;
   margin-left: auto;
   position: relative;
-  z-index: 15;
 }
 
 /* Row */
@@ -1103,7 +1102,7 @@
   overflow: hidden;
   color: #343a40;
   text-overflow: ellipsis;
-  whitespace: nowrap;
+  white-space: nowrap;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -1628,12 +1627,12 @@
 
 /* Select */
 
-.select {
+.abbott-test-select {
   position: relative;
   height: 40px;
 }
 
-.select__selected {
+.abbott-test-select__selected {
   min-width: 160px;
   position: relative;
   display: -webkit-box;
@@ -1656,7 +1655,7 @@
   transition: all 0.3s;
 }
 
-.select__selected span {
+.abbott-test-select__selected span {
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -1665,7 +1664,7 @@
   white-space: nowrap;
 }
 
-.select__selected::before {
+.abbott-test-select__selected::before {
   content: "";
   position: absolute;
   width: 16px;
@@ -1683,19 +1682,19 @@
   transition: all 0.3s;
 }
 
-.select--closed .select__selected {
+.abbott-test-select--closed .abbott-test-select__selected {
   border: 1px solid #d9d9d9;
   border-radius: 40px;
   color: #8c8c8c;
 }
 
-.select--closed .select__selected::before {
+.abbott-test-select--closed .abbott-test-select__selected::before {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
-.select__select {
+.abbott-test-select__select {
   position: absolute;
   width: 100%;
   min-width: 160px;
@@ -1713,26 +1712,26 @@
   z-index: 25;
 }
 
-.select--closed .select__select {
+.abbott-test-select--closed .abbott-test-select__select {
   opacity: 0;
   pointer-events: none;
 }
 
-.select__wrap {
+.abbott-test-select__wrap {
   position: relative;
   width: 100%;
   max-height: 210px;
   overflow-y: scroll;
 }
 
-.select__wrap::-webkit-scrollbar {
+.abbott-test-select__wrap::-webkit-scrollbar {
   width: 4px;
   background-color: transparent !important;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
 
-.select__wrap::-webkit-scrollbar-thumb {
+.abbott-test-select__wrap::-webkit-scrollbar-thumb {
   width: 0.4rem;
   background: rgba(0, 156, 222, 0.2) !important;
   border-radius: 8px;
@@ -1740,7 +1739,7 @@
   transition: all 0.4s;
 }
 
-.select__option {
+.abbott-test-select__option {
   width: 100%;
   position: relative;
   white-space: nowrap;
@@ -1759,12 +1758,12 @@
   padding: 6px 12px;
 }
 
-.select__option:hover,
-.select__option:hover * {
+.abbott-test-select__option:hover,
+.abbott-test-select__option:hover * {
   color: var(--main-color);
 }
 
-.select__option span {
+.abbott-test-select__option span {
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -1773,17 +1772,17 @@
   white-space: nowrap;
 }
 
-.select__option--active {
+.abbott-test-select__option--active {
   color: #000;
 }
 
-.select__option--checkbox {
+.abbott-test-select__option--checkbox {
   line-height: 20px;
   padding-left: 36px;
   cursor: pointer;
 }
 
-.select__option--checkbox::before {
+.abbott-test-select__option--checkbox::before {
   content: "";
   position: absolute;
   width: 20px;
@@ -1794,7 +1793,7 @@
   top: 6px;
 }
 
-.select__option--checkbox::after {
+.abbott-test-select__option--checkbox::after {
   content: "";
   position: absolute;
   width: 20px;
@@ -1808,20 +1807,20 @@
   opacity: 0;
 }
 
-.select__option--checkbox.select__option--active::before,
-.select__option--checkbox:hover::before {
+.abbott-test-select__option--checkbox.abbott-test-select__option--active::before,
+.abbott-test-select__option--checkbox:hover::before {
   border-color: var(--main-color);
 }
 
-.select__option--checkbox.select__option--active::after {
+.abbott-test-select__option--checkbox.abbott-test-select__option--active::after {
   opacity: 1;
 }
 
-.select__option--checkbox input {
+.abbott-test-select__option--checkbox input {
   display: none;
 }
 
-.select__tooltip {
+.abbott-test-select__tooltip {
   position: absolute;
   top: 0;
 }

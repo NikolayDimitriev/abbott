@@ -361,6 +361,7 @@
         $("#controle-test-page").removeClass("active-page");
         $("#interaction-page").removeClass("active-page");
         $("#first-test-page").removeClass("active-page");
+        $(window).scrollTop(0);
       }
 
       updateHeaderById(activeSlide.id);

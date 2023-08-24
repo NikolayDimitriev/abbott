@@ -18,6 +18,8 @@
       if (page == 3) {
         $("#controle-test-page").addClass("active-page");
       }
+
+      $(window).scrollTop(0);
     });
 
     $("body").on("click", ".abbott-more-sources__button", function () {
